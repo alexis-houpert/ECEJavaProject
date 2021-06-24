@@ -1,12 +1,16 @@
 package sample;
 import java.sql.*;
 
-class MysqlCon{
+public class MysqlCon{
 
     public static Connection dbConnect;
 
-    public static void main(String[] args) {
-        Connection conn = null;
+    public MysqlCon(){
+        setDbConnect();
+    }
+
+    public void setDbConnect() {
+        dbConnect = null;
         try {
             // db parameters - ptest is the name of the database
             String url       = "jdbc:mysql://localhost:3306/car_rent";
@@ -14,22 +18,17 @@ class MysqlCon{
             String password  = "";
 
             // create a connection to the database
-            conn = DriverManager.getConnection(url, user, password);
+            dbConnect = DriverManager.getConnection(url, user, password);
             // more processing here
             // ...
-            Statement stmt=conn.createStatement();
-            ResultSet rs=stmt.executeQuery("select * from customer");
-            while(rs.next())
-            {
-                System.out.println(rs.getInt(1)+"  "+rs.getString(2));
-            }
+
 
         } catch(SQLException e) {
             System.out.println(e.getMessage());
         } finally {
             try{
-                if(conn != null)
-                    conn.close();
+                if(dbConnect != null)
+                    dbConnect.close();
             }catch(SQLException ex){
                 System.out.println(ex.getMessage());
             }
