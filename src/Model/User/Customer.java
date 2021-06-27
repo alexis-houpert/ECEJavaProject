@@ -1,4 +1,4 @@
-package Model;
+package Model.User;
 
 public abstract class Customer implements User {
     private int numCust;

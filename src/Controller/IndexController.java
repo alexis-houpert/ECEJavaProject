@@ -14,14 +14,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class IndexController implements Initializable {
 
-    @FXML private Button loginButton;
-    @FXML private Button quitButton;
-    @FXML private Button createAccountButton;
 
-        @Override
-        public void initialize(URL arg0, ResourceBundle arg1) {}
+    @FXML private Button QuitButton;
+    @FXML private Button AccountButton;
+
+
+
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1)
+    {
+        //create
+
+    }
 
     /**
      * Change la vue actuelle
@@ -42,34 +49,22 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * Connexion à l'application
+     * Change vue to the detail for a item in the list
      * @param event
      * @throws Exception
      */
     @FXML
-    private void actionLogin(ActionEvent event) throws Exception {
-        this.changeView("IndexShop", event);
+    private void actionDisplayItem(ActionEvent event) throws Exception {
+        this.changeView("ShopItem", event);
     }
 
     /**
-     * Créer un compte
+     * Change the vue to display user informations
      * @param event
      * @throws Exception
      */
     @FXML
-    private void actionCreateAccount(ActionEvent event) throws Exception {
-        this.changeView("CreateAccount", event);
+    private void actionAccountInfo(ActionEvent event) throws Exception {
+        this.changeView("AccountInfo", event);
     }
-
-    /**
-     * Quitte l'application
-     * @param event
-     */
-    @FXML
-    private void actionQuit(ActionEvent event) {
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.close();
-    }
-
-
 }
