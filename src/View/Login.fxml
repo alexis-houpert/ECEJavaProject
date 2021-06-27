@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+  <children>
+    <Button fx:id="loginButton" alignment="BOTTOM_CENTER" layoutX="67.0" layoutY="272.0" mnemonicParsing="false" onAction="#actionLogin" prefHeight="27.0" prefWidth="266.0" text="Sign In" />
+    <Button fx:id="createAccountButton" alignment="BOTTOM_CENTER" layoutX="65.0" layoutY="413.0" mnemonicParsing="false" onAction="#actionCreateAccount" prefHeight="27.0" prefWidth="266.0" text="SIGN UP" />
+    <Button fx:id="quitButton" alignment="BOTTOM_CENTER" layoutX="67.0" layoutY="452.0" mnemonicParsing="false" onAction="#actionQuit" prefHeight="27.0" prefWidth="266.0" text="QUITTER" />
+      <Label alignment="CENTER" layoutX="117.0" layoutY="29.0" prefHeight="44.0" prefWidth="166.0" text="Rent a Car">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField layoutX="124.0" layoutY="151.0" />
+      <TextField layoutX="125.0" layoutY="235.0" />
+      <Label layoutX="125.0" layoutY="124.0" prefHeight="27.0" prefWidth="84.0" text="Email" />
+      <Label layoutX="125.0" layoutY="199.0" prefHeight="27.0" prefWidth="84.0" text="Password" />
+  </children>
+</AnchorPane>
