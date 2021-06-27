@@ -1,4 +1,4 @@
-package sample;
+package Model;
 
 public abstract class Customer implements User {
     private int numCust;
