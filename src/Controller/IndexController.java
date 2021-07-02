@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -19,9 +20,7 @@ import java.util.ResourceBundle;
 
 public class IndexController implements Initializable {
 
-
-    @FXML private Button QuitButton;
-    @FXML private Button AccountButton;
+    @FXML private Pane header;
 
     @FXML private VBox conteneur;
 
@@ -29,6 +28,12 @@ public class IndexController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
     {
+        try {
+            AnchorPane headerAnchor = FXMLLoader.load(getClass().getResource("/View/Header.fxml"));
+            header.getChildren().add(headerAnchor);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //create model object
         //Load Compnents here
         AnchorPane item = null;
