@@ -2,6 +2,7 @@ package Model.Shop;
 
 import Model.DataAccessLayer.DalShopItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchShopItem {
@@ -10,6 +11,7 @@ public class SearchShopItem {
     public SearchShopItem()
     {
         // à remplacer par shopItem
+        listShopItem = new ArrayList<>();
        List<Car> cars=  DalShopItem.GetCars(); //TODO : convertir avec SHopItem
        for (Car car : cars)
        {

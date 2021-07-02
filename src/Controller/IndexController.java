@@ -59,9 +59,9 @@ public class IndexController implements Initializable {
             AnchorPane item = null;
             try {
                 item = FXMLLoader.load(getClass().getResource("/View/Item.fxml"));
-                ((Label) item.lookup("name")).setText(shopItem.GetCar().getName());
+/*                ((Label) item.lookup("name")).setText(shopItem.GetCar().getName());
                 ((Label) item.lookup("horsePower")).setText(shopItem.GetCar().getHorsePower().toString());
-                ((Label) item.lookup("horsePower")).setText(shopItem.GetCar().getNbSeats().toString());
+                ((Label) item.lookup("horsePower")).setText(shopItem.GetCar().getNbSeats().toString()); */
                 conteneur.getChildren().add(item);
             } catch (IOException e) {
                 e.printStackTrace();
