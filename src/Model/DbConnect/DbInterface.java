@@ -1,7 +1,8 @@
 package Model.DbConnect;
+import Model.Shop.Car;
+
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DbInterface {
@@ -12,12 +13,11 @@ public class DbInterface {
      * @return results of the request. Data from row are mixed into a String
      * @throws SQLException
      */
-    public static List<String> connectDbRequest(String request) throws SQLException {
-        List<String> results = new ArrayList<String>();
+    public static List<Car> GetCar(String request) throws SQLException {
+        List<Car> results = new ArrayList<>();
         Connection dbConnect = null;
         try {
-            // db parameters - ptest is the name of the database
-            String url       = "jdbc:mysql://localhost:3306/car_rent";
+            String url       = "jdbc:mysql://localhost:3306/rent_car";
             String user      = "root";
             String password  = "";
 
@@ -30,7 +30,9 @@ public class DbInterface {
 
             while(rs.next())
             {
-                results.add(rs.getInt(1)+" ; "+rs.getString(2));
+                Car car = new Car(rs.getString(1), rs.getString(2), rs.getInt(3),
+                        rs.getInt(4), rs.getString(5));
+                results.add(car);
             }
 
             return results;
@@ -48,13 +50,15 @@ public class DbInterface {
         return results;
     }
 
+
+
     public static void main(String[] arg) {
-        DbInterface dbUti = new DbInterface();
+
         try {
-            List<String> rs = dbUti.connectDbRequest("select * from customer");
-            for(String str : rs)
+            List<Car> rs = DbInterface.GetCar("select * from car");
+            for(Car car : rs)
             {
-                System.out.println(str);
+                System.out.println(car.getName() + car.getPlateNumber() + car.getNbSeats());
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

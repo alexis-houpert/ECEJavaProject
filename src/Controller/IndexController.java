@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Shop.SearchShopItem;
+import Model.Shop.ShopItem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,9 +26,20 @@ public class IndexController implements Initializable {
 
     @FXML private VBox conteneur;
 
+    private SearchShopItem searchShopItem;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
+    {
+        initHeader();
+        initData();
+        //create model object
+        //Load Compnents here
+
+    }
+
+
+    public void initHeader()
     {
         try {
             AnchorPane headerAnchor = FXMLLoader.load(getClass().getResource("/View/Header.fxml"));
@@ -34,22 +47,27 @@ public class IndexController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //create model object
-        //Load Compnents here
-        AnchorPane item = null;
-        AnchorPane item2 = null;
-        try {
-            item = FXMLLoader.load(getClass().getResource("/View/Item.fxml"));
-            item2 = FXMLLoader.load(getClass().getResource("/View/Item.fxml"));
+    }
 
-            conteneur.getChildren().add(item);
-            conteneur.getChildren().add(item2);
-            Label name = (Label) item.lookup("name");
-            //name.setText("Tesla Model 3");
 
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void initData()
+    {
+        searchShopItem = new SearchShopItem();
+
+        for (ShopItem shopItem : searchShopItem.GetListShopItem() )
+        {
+            AnchorPane item = null;
+            try {
+                item = FXMLLoader.load(getClass().getResource("/View/Item.fxml"));
+                ((Label) item.lookup("name")).setText(shopItem.GetCar().getName());
+                ((Label) item.lookup("horsePower")).setText(shopItem.GetCar().getHorsePower().toString());
+                ((Label) item.lookup("horsePower")).setText(shopItem.GetCar().getNbSeats().toString());
+                conteneur.getChildren().add(item);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
 
 
     }
