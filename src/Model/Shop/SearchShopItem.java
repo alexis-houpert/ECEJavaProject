@@ -3,6 +3,7 @@ package Model.Shop;
 import Model.DataAccessLayer.DalShopItem;
 
 import java.util.Date;
+
 import java.util.List;
 
 public class SearchShopItem {
@@ -34,6 +35,7 @@ public class SearchShopItem {
         this.startAddress = startAddress;
         this.endAddress = endAddress;
         this.listShopItem =  DalShopItem.GetShopItems(startDate, endDate);
+
 
     }
 
