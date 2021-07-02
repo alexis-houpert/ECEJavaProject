@@ -8,6 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,7 +23,7 @@ public class IndexController implements Initializable {
     @FXML private Button QuitButton;
     @FXML private Button AccountButton;
 
-
+    @FXML private VBox conteneur;
 
 
     @Override
@@ -28,6 +31,20 @@ public class IndexController implements Initializable {
     {
         //create model object
         //Load Compnents here
+        AnchorPane item = null;
+        AnchorPane item2 = null;
+        try {
+            item = FXMLLoader.load(getClass().getResource("/View/Item.fxml"));
+            item2 = FXMLLoader.load(getClass().getResource("/View/Item.fxml"));
+
+            conteneur.getChildren().add(item);
+            conteneur.getChildren().add(item2);
+            Label name = (Label) item.lookup("name");
+            //name.setText("Tesla Model 3");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
