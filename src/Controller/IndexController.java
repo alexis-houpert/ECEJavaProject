@@ -32,10 +32,9 @@ public class IndexController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1)
     {
         initHeader();
-        initData();
+        //initData();
         //create model object
         //Load Compnents here
-
     }
 
 
