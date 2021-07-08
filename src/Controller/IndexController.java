@@ -1,5 +1,6 @@
 package Controller;
 
+import Application.Constantes;
 import Model.Shop.SearchShopItem;
 import Model.Shop.ShopItem;
 import javafx.event.ActionEvent;
@@ -32,7 +33,7 @@ public class IndexController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1)
     {
         initHeader();
-        //initData();
+        initData();
         //create model object
         //Load Compnents here
     }
@@ -58,11 +59,23 @@ public class IndexController implements Initializable {
             AnchorPane item = null;
             try {
                 item = FXMLLoader.load(getClass().getResource("/View/Item.fxml"));
-                ((Label) item.lookup("name")).setText(shopItem.GetCar().getName());
-                ((Label) item.lookup("horsePower")).setText(shopItem.GetCar().getHorsePower().toString());
-                ((Label) item.lookup("horsePower")).setText(shopItem.GetCar().getNbSeats().toString());
+
+                    Label label = (Label) item.lookup("#name");
+                    if (label == null)
+                    {
+                        throw new IllegalArgumentException("Conteneur non trouvé dans le FXML");
+                    }
+                    ((Label) item.lookup(Constantes.VUE_ITEM_NAME)).setText(shopItem.GetCar().getName());
+                    ((Label) item.lookup(Constantes.VUE_ITEM_HORSE_POWER)).setText(shopItem.GetCar().getHorsePower().toString());
+                    ((Label) item.lookup(Constantes.VUE_ITEM_NB_SEATS)).setText(shopItem.GetCar().getNbSeats().toString());
+
+
                 conteneur.getChildren().add(item);
             } catch (IOException e) {
+                e.printStackTrace();
+            }
+            catch (IllegalArgumentException e)
+            {
                 e.printStackTrace();
             }
         }

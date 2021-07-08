@@ -28,17 +28,18 @@ public class DbInterface {
             Statement stmt= dbConnect.createStatement();
             ResultSet rs = stmt.executeQuery(request);
 
-            while(rs.next())
-            {
-                Car car = new Car(rs.getString(1), rs.getString(2), rs.getInt(3),
-                        rs.getInt(4), rs.getString(5));
-                results.add(car);
+            if (false && rs != null) { //TODO : code à remplacer lorsque la bd sera terminé
+                while (rs.next()) {
+                    Car car = new Car(rs.getString(1), rs.getString(2), rs.getInt(3),
+                            rs.getInt(4), rs.getString(5));
+                    results.add(car);
+                }
             }
-
+            results.add(new Car("AUDI A4","dqsdsq", 302, 5));
             return results;
 
         } catch(SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         } finally {
             try{
                 if(dbConnect != null)
@@ -47,6 +48,9 @@ public class DbInterface {
                 System.out.println(ex.getMessage());
             }
         }
+
+
+
         return results;
     }
 

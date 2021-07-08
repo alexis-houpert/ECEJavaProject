@@ -19,7 +19,7 @@ public class DalShopItem {
 
 
     public static List<Car> GetCars() {
-        String request = "Select * from car";
+        String request = "Select * from cars";
         List<Car> results = new ArrayList<>();
         try {
             results = DbInterface.GetCar(request);
