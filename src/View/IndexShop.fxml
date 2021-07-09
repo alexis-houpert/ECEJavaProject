@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -13,10 +14,14 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <VBox fx:id="conteneur" prefHeight="442.0" prefWidth="558.0">
-                     <children>
-                     </children>
-                  </VBox>
+                  <ScrollPane prefHeight="442.0" prefWidth="558.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="431.0" prefWidth="545.0">
+                           <children>
+                              <VBox fx:id="conteneur" prefHeight="432.0" prefWidth="545.0" />
+                           </children></AnchorPane>
+                    </content>
+                  </ScrollPane>
                </children>
                 </AnchorPane>
 
