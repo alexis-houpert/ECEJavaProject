@@ -1,6 +1,6 @@
 package Model.User;
 
-public class Employee implements User
+public class Employee implements UserInterface
 {
     private int numEmployee;
     private String firstName;

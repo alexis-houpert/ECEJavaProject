@@ -1,5 +1,8 @@
 package Model.DbConnect;
+import Application.Constantes;
 import Model.Shop.Car;
+import Model.User.User;
+import Model.User.UserInterface;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,14 +20,9 @@ public class DbInterface {
         List<Car> results = new ArrayList<>();
         Connection dbConnect = null;
         try {
-            String url       = "jdbc:mysql://localhost:3306/rent_car";
-            String user      = "root";
-            String password  = "";
-
             // create a connection to the database
-            dbConnect = DriverManager.getConnection(url, user, password);
-            // more processing here
-            // ...
+            dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
+
             Statement stmt= dbConnect.createStatement();
             ResultSet rs = stmt.executeQuery(request);
 
@@ -49,9 +47,23 @@ public class DbInterface {
             }
         }
 
-
-
         return results;
+    }
+
+    public static User GetUser(String request) throws SQLException {
+        Connection dbConnect = null;
+
+            // create a connection to the database
+            dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
+            Statement stmt = dbConnect.createStatement();
+            ResultSet rs = stmt.executeQuery(request);
+            while (rs.next())
+            {
+                return new User(rs.getString(1), rs.getString(2));
+
+            }
+            return null;
+
     }
 
 

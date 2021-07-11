@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.DataAccessLayer.DalUser;
+import Model.Exception.ConnectException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +10,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,12 +20,16 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
-    @FXML private Button loginButton;
-    @FXML private Button quitButton;
-    @FXML private Button createAccountButton;
+
+    @FXML private TextField email;
+    @FXML private TextField passwd;
+    @FXML private Label errorMessage;
 
         @Override
-        public void initialize(URL arg0, ResourceBundle arg1) {}
+        public void initialize(URL arg0, ResourceBundle arg1)
+        {
+
+        }
 
     /**
      * Change la vue actuelle
@@ -48,7 +56,19 @@ public class LoginController implements Initializable {
      */
     @FXML
     private void actionLogin(ActionEvent event) throws Exception {
-        this.changeView("IndexShop", event);
+
+        String email = this.email.getText();
+        String passwd = this.passwd.getText();
+        try
+        {
+            DalUser.Login(email, passwd);
+            this.changeView("IndexShop", event);
+        }
+        catch (ConnectException e)
+        {
+            errorMessage.setText(e.getMessage());
+            errorMessage.setStyle("-fx-text-fill: #f14242");
+        }
     }
 
     /**

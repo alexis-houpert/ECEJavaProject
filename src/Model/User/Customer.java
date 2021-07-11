@@ -1,6 +1,6 @@
 package Model.User;
 
-public abstract class Customer implements User {
+public abstract class Customer implements UserInterface {
     private int numCust;
     private String lastName;
     private String firstName;
