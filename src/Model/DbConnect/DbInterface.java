@@ -46,7 +46,6 @@ public class DbInterface {
                 System.out.println(ex.getMessage());
             }
         }
-
         return results;
     }
 
