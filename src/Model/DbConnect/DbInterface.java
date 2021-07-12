@@ -66,6 +66,15 @@ public class DbInterface {
 
     }
 
+    public static void InsertUser(String request)  throws SQLException {
+        Connection dbConnect = null;
+
+        // create a connection to the database
+        dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
+        Statement stmt = dbConnect.createStatement();
+        stmt.executeUpdate(request);
+    }
+
 
 
     public static void main(String[] arg) {
