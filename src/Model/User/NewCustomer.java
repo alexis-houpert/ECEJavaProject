@@ -1,4 +1,4 @@
-package Model;
+package Model.User;
 
 public class NewCustomer extends Customer
 {

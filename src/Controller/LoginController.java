@@ -20,8 +20,8 @@ public class LoginController implements Initializable {
     @FXML private Button quitButton;
     @FXML private Button createAccountButton;
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {}
+        @Override
+        public void initialize(URL arg0, ResourceBundle arg1) {}
 
     /**
      * Change la vue actuelle
@@ -48,7 +48,7 @@ public class LoginController implements Initializable {
      */
     @FXML
     private void actionLogin(ActionEvent event) throws Exception {
-        this.changeView("SearchCar", event);
+        this.changeView("IndexShop", event);
     }
 
     /**
