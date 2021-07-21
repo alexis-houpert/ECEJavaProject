@@ -1,6 +1,10 @@
 package Model.User;
 
-public abstract class Customer implements UserInterface {
+import Model.DbConnect.DbInterface;
+
+import java.sql.SQLException;
+
+public class Customer extends User {
     private int numCust;
     private String lastName;
     private String firstName;
@@ -8,22 +12,18 @@ public abstract class Customer implements UserInterface {
     private String adress;
     private String hashPassword;
 
+    private static int nbCustommer = 0;
 
-    public Customer(int numCust, String lastName, String firstName, String email, String adress, String hashPassword)
+    public Customer( String email,  String hashPassword, int numCust, String firstName, String lastName, String adress)
     {
+        super(email, hashPassword, firstName, lastName, adress);
         this.numCust = numCust;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.adress = adress;
-        this.email = email;
-        this.hashPassword = hashPassword;
     }
 
     public Customer(int numCust, String email, String hashPassword)
     {
+        super(email, hashPassword);
         this.numCust = numCust;
-        this.email = email;
-        this.hashPassword = hashPassword;
     }
 
     public int GetNum()
@@ -52,4 +52,21 @@ public abstract class Customer implements UserInterface {
     {
         return this.adress;
     }
+
+    public static int GetNewNumCustomer()
+    {
+        nbCustommer += 1;
+        return 1000 * nbCustommer;
+    }
+    public static void UpdateNbCustomer()
+    {
+        try{
+           nbCustommer = DbInterface.GetNbCustomer();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
+

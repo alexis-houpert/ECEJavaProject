@@ -15,6 +15,15 @@ public class User implements UserInterface {
         this.hashPasswd = hashPasswd;
     }
 
+    public User(String email, String hashPasswd, String firstName, String lastName, String adress)
+    {
+        this.email = email;
+        this.hashPasswd = hashPasswd;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.adress = adress;
+    }
+
 
     @Override
     public int GetNum() {

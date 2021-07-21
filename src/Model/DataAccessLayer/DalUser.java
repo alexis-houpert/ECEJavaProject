@@ -61,9 +61,31 @@ public class DalUser {
     }
 
     public static void AddUser(User user) throws SQLException {
+        String role = "";
         if (user.GetFirstName() == null || user.GetFirstName().isEmpty())
         {
-            String request = "INSERT INTO user (email, password) VALUES ('" + user.GetEmail() + "', '" + user.GetHashPassword() + "');";
+            String request = "INSERT INTO user (email, password, roleCode, numCust, numEmploye, firstName, lastName, adress) " +
+                    "VALUES ('" + user.GetEmail() + "', '" + user.GetHashPassword() + "','" + role + "'," +
+                    "'" + (user.getClass().getSimpleName() == "Customer" ? ((Customer) user).GetNum():((Employee) user).GetNum() ) + "'," +
+                    "'" + (user.getClass().getSimpleName() == "Customer" ? "NCU" : "EMP") + "'," +
+                    "'" + user.GetFirstName() + "'," +
+                    "'" + user.GetLastName() + "'," +
+                    "'" + user.GetAdress() + "' );";
+            DbInterface.InsertUser(request);
+        }
+    }
+
+    public static void AddCustomer(Customer cust) throws SQLException {
+        String role = "NCU";
+        if (cust.GetFirstName() == null || cust.GetFirstName().isEmpty())
+        {
+            String request = "INSERT INTO cust (email, password, roleCode, numCust, numEmploye, firstName, lastName, adress) " +
+                    "VALUES ('" + cust.GetEmail() + "', '" + cust.GetHashPassword() + "','" + role + "'," +
+                    "'" + cust.GetNum() + "'," +
+                    "'" + role + "'," +
+                    "'" + cust.GetFirstName() + "'," +
+                    "'" + cust.GetLastName() + "'," +
+                    "'" + cust.GetAdress() + "' );";
             DbInterface.InsertUser(request);
         }
     }

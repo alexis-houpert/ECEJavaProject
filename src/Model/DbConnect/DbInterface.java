@@ -62,8 +62,8 @@ public class DbInterface {
 
             }
             return null;
-
     }
+
 
     public static void InsertUser(String request)  throws SQLException {
         Connection dbConnect = null;
@@ -74,6 +74,20 @@ public class DbInterface {
         stmt.executeUpdate(request);
     }
 
+    public static int GetNbCustomer() throws SQLException {
+        Connection dbConnect = null;
+
+        // create a connection to the database
+        dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
+        Statement stmt = dbConnect.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from user WHERE numCustommer NOT NULL");
+        int cpt = 0;
+        while (rs.next())
+        {
+           cpt++;
+        }
+        return cpt;
+    }
 
 
     public static void main(String[] arg) {

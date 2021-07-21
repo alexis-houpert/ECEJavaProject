@@ -1,7 +1,7 @@
 package Controller;
 
 import Model.DataAccessLayer.DalUser;
-import Model.User.User;
+import Model.User.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -131,7 +130,10 @@ public class CreateAccountController implements Initializable {
 
 
         try {
-            DalUser.AddUser(new User(emailText.getText().toLowerCase(Locale.ROOT), generatedPassword));
+            Customer.UpdateNbCustomer();
+            DalUser.AddUser(new Customer(emailText.getText().toLowerCase(Locale.ROOT), generatedPassword, Customer.GetNewNumCustomer(),
+                    firstNameText.getText(),
+                    lastNameText.getText(), adressText.getText()));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
