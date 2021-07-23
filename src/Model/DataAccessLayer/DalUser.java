@@ -77,12 +77,11 @@ public class DalUser {
 
     public static void AddCustomer(Customer cust) throws SQLException {
         String role = "NCU";
-        if (cust.GetFirstName() == null || cust.GetFirstName().isEmpty())
+        if (cust.GetFirstName() != null || !cust.GetFirstName().isEmpty())
         {
-            String request = "INSERT INTO cust (email, password, roleCode, numCust, numEmploye, firstName, lastName, adress) " +
+            String request = "INSERT INTO user (email, password, roleCode, numCust, firstName, lastName, adress) " +
                     "VALUES ('" + cust.GetEmail() + "', '" + cust.GetHashPassword() + "','" + role + "'," +
                     "'" + cust.GetNum() + "'," +
-                    "'" + role + "'," +
                     "'" + cust.GetFirstName() + "'," +
                     "'" + cust.GetLastName() + "'," +
                     "'" + cust.GetAdress() + "' );";

@@ -65,7 +65,7 @@ public class IndexController implements Initializable {
                     {
                         throw new IllegalArgumentException("Conteneur non trouvé dans le FXML");
                     }
-                    ((Label) item.lookup(Constantes.VUE_ITEM_NAME)).setText(shopItem.GetCar().getName());
+                    ((Label) item.lookup(Constantes.VUE_ITEM_NAME)).setText(shopItem.GetCar().getBrand() + " - " + shopItem.GetCar().getName());
                     ((Label) item.lookup(Constantes.VUE_ITEM_HORSE_POWER)).setText(shopItem.GetCar().getHorsePower().toString());
                     ((Label) item.lookup(Constantes.VUE_ITEM_NB_SEATS)).setText(shopItem.GetCar().getNbSeats().toString());
 

@@ -1,8 +1,8 @@
 package Model.DbConnect;
 import Application.Constantes;
 import Model.Shop.Car;
+import Model.Shop.ShopItem;
 import Model.User.User;
-import Model.User.UserInterface;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class DbInterface {
      * @return results of the request. Data from row are mixed into a String
      * @throws SQLException
      */
-    public static List<Car> GetCar(String request) throws SQLException {
+    public static List<Car> GetCars(String request) throws SQLException {
         List<Car> results = new ArrayList<>();
         Connection dbConnect = null;
         try {
@@ -26,14 +26,46 @@ public class DbInterface {
             Statement stmt= dbConnect.createStatement();
             ResultSet rs = stmt.executeQuery(request);
 
-            if (false && rs != null) { //TODO : code à remplacer lorsque la bd sera terminé
+
                 while (rs.next()) {
-                    Car car = new Car(rs.getString(1), rs.getString(2), rs.getInt(3),
-                            rs.getInt(4), rs.getString(5));
+                    Car car = new Car(rs.getString(2), rs.getString(3), rs.getInt(1),
+                            rs.getInt(4), rs.getInt(5), rs.getString(6));
                     results.add(car);
                 }
+
+
+            return results;
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try{
+                if(dbConnect != null)
+                    dbConnect.close();
+            }catch(SQLException ex){
+                System.out.println(ex.getMessage());
             }
-            results.add(new Car("AUDI A4","dqsdsq", 302, 5));
+        }
+        return results;
+    }
+
+    public static List<ShopItem> GetShopItems() throws SQLException
+    {
+        List<ShopItem> results = new ArrayList<>();
+        Connection dbConnect = null;
+        try {
+            // create a connection to the database
+            dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
+
+            Statement stmt= dbConnect.createStatement();
+
+            ResultSet rs = stmt.executeQuery("Select * from car, shopitem where car.serialNumber = shopitem.serialNumber ");
+            while (rs.next()) {
+                Car car = new Car(rs.getString(2), rs.getString(3), rs.getInt(1),
+                        rs.getInt(4), rs.getInt(5), rs.getString(6));
+
+                results.add(new ShopItem(car, rs.getInt(8)));
+            }
             return results;
 
         } catch(SQLException e) {
@@ -80,7 +112,7 @@ public class DbInterface {
         // create a connection to the database
         dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
         Statement stmt = dbConnect.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * from user WHERE numCustommer NOT NULL");
+        ResultSet rs = stmt.executeQuery("SELECT * from user WHERE numCust != NULL");
         int cpt = 0;
         while (rs.next())
         {
@@ -93,10 +125,10 @@ public class DbInterface {
     public static void main(String[] arg) {
 
         try {
-            List<Car> rs = DbInterface.GetCar("select * from car");
+            List<Car> rs = DbInterface.GetCars("select * from car");
             for(Car car : rs)
             {
-                System.out.println(car.getName() + car.getPlateNumber() + car.getNbSeats());
+                System.out.println(car.getName() + car.getSerialNumber() + car.getNbSeats());
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

@@ -12,17 +12,20 @@ public class DalShopItem {
     public static List<ShopItem> GetShopItem()
     {
         List<ShopItem> results = new ArrayList<ShopItem>();
-        DbInterface dbconnect = new DbInterface();
-
+        try {
+            results = DbInterface.GetShopItems();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return results;
     }
 
 
-    public static List<Car> GetCars() {
-        String request = "Select * from cars";
+    public static List<Car> GetAllCars() {
+        String request = "Select * from car";
         List<Car> results = new ArrayList<>();
         try {
-            results = DbInterface.GetCar(request);
+            results = DbInterface.GetCars(request);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

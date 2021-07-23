@@ -6,11 +6,6 @@ import java.sql.SQLException;
 
 public class Customer extends User {
     private int numCust;
-    private String lastName;
-    private String firstName;
-    private String email;
-    private String adress;
-    private String hashPassword;
 
     private static int nbCustommer = 0;
 
@@ -29,28 +24,6 @@ public class Customer extends User {
     public int GetNum()
     {
         return this.numCust;
-    }
-
-    public String GetFirstName()
-    {
-        return this.firstName;
-    }
-    public String GetLastName()
-    {
-        return this.lastName;
-    }
-    public String GetEmail()
-    {
-        return this.email;
-    }
-
-    public String GetHashPassword()
-    {
-        return this.hashPassword;
-    }
-    public String GetAdress()
-    {
-        return this.adress;
     }
 
     public static int GetNewNumCustomer()

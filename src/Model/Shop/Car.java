@@ -2,24 +2,27 @@ package Model.Shop;
 
 public class Car {
     private String name;
-    private String plateNumber;
+    private String brand;
+    private int serialNumber;
     private Integer horsePower;
     private Integer nbSeats;
-    private String options;
+    private String color;
 
-    public Car(String name, String plateNumber, int horsePower, int nbSeats) {
+    public Car(String brand, String name, int serialNumber, int horsePower, int nbSeats) {
+        this.brand = brand;
         this.name = name;
-        this.plateNumber = plateNumber;
+        this.serialNumber = serialNumber;
         this.horsePower = horsePower;
         this.nbSeats = nbSeats;
     }
 
-    public Car(String name, String plateNumber, int horsePower, int nbSeats, String options) {
+    public Car(String brand, String name, int serialNumber, int horsePower, int nbSeats, String color) {
+        this.brand = brand;
         this.name = name;
-        this.plateNumber = plateNumber;
+        this.serialNumber = serialNumber;
         this.horsePower = horsePower;
         this.nbSeats = nbSeats;
-        this.options = options;
+        this.color = color;
     }
 
     public Integer getNbSeats() {
@@ -30,16 +33,23 @@ public class Car {
         return name;
     }
 
+    public String getBrand() {
+        return brand;
+    }
+
     public Integer getHorsePower() {
         return horsePower;
     }
 
-    public String getOptions() {
-        return options;
+    public String getColor() {
+        return color;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public void setHorsePower(Integer horsePower) {
@@ -50,14 +60,14 @@ public class Car {
         this.nbSeats = nbSeats;
     }
 
-    public void setOptions(String options) {
-        this.options = options;
+    public void setColor(String color) {
+        this.color = color;
     }
-    public String getPlateNumber() {
-        return plateNumber;
+    public int getSerialNumber() {
+        return serialNumber;
     }
 
-    public void setPlateNumber(String plateNumber) {
-        this.plateNumber = plateNumber;
+    public void setSerialNumber(int serialNumber) {
+        this.serialNumber = serialNumber;
     }
 }

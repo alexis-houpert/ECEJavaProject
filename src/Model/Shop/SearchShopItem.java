@@ -10,14 +10,7 @@ public class SearchShopItem {
 
     public SearchShopItem()
     {
-        // à remplacer par shopItem
-        listShopItem = new ArrayList<>();
-       List<Car> cars=  DalShopItem.GetCars(); //TODO : convertir avec SHopItem
-       for (Car car : cars)
-       {
-           listShopItem.add(new ShopItem(car, 50));
-       }
-
+       this.listShopItem =  DalShopItem.GetShopItem();
     }
 
     public List<ShopItem> GetListShopItem()
