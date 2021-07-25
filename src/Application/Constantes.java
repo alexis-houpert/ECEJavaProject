@@ -9,6 +9,16 @@ public class Constantes {
     public static final String VUE_ITEM_NB_SEATS = "#numberSeat";
     public static final String VUE_ITEM_COLOR = "#color";
 
+    // BOOKING HISTORIC
+    public static final String VUE_BOOK_ID = "#idBook";
+    public static final String VUE_BOOK_NAME = "#carName";
+    public static final String VUE_BOOK_DATE_START = "#dateStartLabel";
+    public static final String VUE_BOOK_DATE_END = "#dateEndLabel";
+    public static final String VUE_BOOK_ADDRESS_START = "#startAddressLabel";
+    public static final String VUE_BOOK_ADDRESS_END = "#endAddressLabel";
+
+
+
 
     public static final String VUE_ITEM_PRICE = "#price";
     public static final String VUE_ITEM_COMPANY = "#company";
@@ -17,8 +27,6 @@ public class Constantes {
     public static final String USER = "root";
     public static final String PASSWORD = "";
 
-    // Identifie employee and customer in code
-    public static final String EMPLOYEE = "EMP";
-    public static final String CUSTOMER = "NCU";
+
 
 }

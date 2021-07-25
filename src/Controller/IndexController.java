@@ -114,15 +114,6 @@ public class IndexController implements Initializable {
 
 
 
-    /**
-     * Change the vue to display user informations
-     * @param event
-     * @throws Exception
-     */
-    @FXML
-    private void actionAccountInfo(ActionEvent event) throws Exception {
-        this.changeView("AccountInfo", event);
-    }
 
 
     @FXML

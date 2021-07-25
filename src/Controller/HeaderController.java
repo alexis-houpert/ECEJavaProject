@@ -37,6 +37,27 @@ public class HeaderController implements Initializable {
         }
     }
 
+    @FXML
+    public void GetAccount(ActionEvent event)
+    {
+        try {
+            FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("/View/AccountInfo.fxml"));
+            Parent tableViewParent = (Parent)fxmlLoader.load();
+            Scene tableViewScene = new Scene(tableViewParent);
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.centerOnScreen();
+            AccountInfoController controller = fxmlLoader.<AccountInfoController>getController();
+            controller.initHeader();
+            controller.initData();
+            window.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

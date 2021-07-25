@@ -2,6 +2,8 @@ package Model.DataAccessLayer;
 
 import Model.DbConnect.DbInterface;
 import Model.Exception.ConnectException;
+import Model.Shop.Car;
+import Model.Shop.ShopItem;
 import Model.User.Customer;
 import Model.User.Employee;
 import Model.User.User;
@@ -9,6 +11,7 @@ import Model.User.UserInterface;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DalUser {
@@ -18,6 +21,25 @@ public class DalUser {
         String request = "SELECT * from User U where email = '" + email + "' AND password = '" + hashPasswd + "';";
 
         return DbInterface.GetUser(request);
+    }
+
+    public static User GetUserById(int id)
+    {
+        User user = new User();
+        String query = "SELECT * from user where id = "+ id +"";
+        try {
+            ResultSet rs = DbInterface.GetData(query);
+            while (rs.next())
+            {
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(7), rs.getString(8), rs.getString(9));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        finally {
+            DbInterface.CloseConnection();
+        }
+        return user;
     }
 
     public static User Login(String email, String password) throws ConnectException, SQLException {

@@ -8,6 +8,7 @@ import Model.User.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -97,6 +98,27 @@ public class DalShopItem {
                     " '"+ booking.getEndAdress() +"');";
             DbInterface.UpdateData(query);
 
+    }
+
+    public static List<Booking> getBookingById(int userId) throws SQLException
+    {
+        List<Booking> bookings = new ArrayList<>();
+        String query = "Select * from booking where userId = "+ userId +";";
+        try {
+            ResultSet rs = DbInterface.GetData(query);
+            while (rs.next())
+            {
+                User user = DalUser.GetUserById(userId);
+                ShopItem item = DalShopItem.GetShopItemById(rs.getInt(3));
+                Date start = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString(4));
+                Date end = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString(5));
+
+                bookings.add(new Booking(rs.getInt(1),user , item, start, end, rs.getString(6), rs.getString(7)));
+            }
+        } catch (SQLException | ParseException throwables) {
+            throwables.printStackTrace();
+        }
+        return bookings;
     }
 
 }
