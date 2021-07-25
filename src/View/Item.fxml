@@ -25,23 +25,23 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="108.0" prefWidth="457.0">
+            <AnchorPane prefHeight="130.0" prefWidth="454.0">
                <children>
                   <Label fx:id="name" layoutX="110.0" layoutY="18.0" text="" textAlignment="CENTER" AnchorPane.topAnchor="18.0" />
-                  <Label fx:id="horsePower" layoutX="14.0" layoutY="48.0" text="" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" />
-                  <Text layoutX="-6.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="horsePower">
+                  <Label fx:id="horsePower" layoutX="35.0" layoutY="54.0" prefHeight="17.0" prefWidth="18.0" text="" AnchorPane.bottomAnchor="38.8" AnchorPane.leftAnchor="35.0" />
+                  <Text layoutX="18.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="horsePower">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Text>
-                  <Label fx:id="numberSeat" layoutX="82.0" layoutY="52.0" text="" />
-                  <Text layoutX="50.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="number of Seat">
+                  <Label fx:id="numberSeat" layoutX="99.0" layoutY="54.0" prefHeight="17.0" prefWidth="18.0" text="" />
+                  <Text layoutX="74.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="number of Seat">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Text>
-                  <Label fx:id="other" layoutX="139.0" layoutY="52.0" text="" />
-                  <Text layoutX="126.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="color">
+                  <Label fx:id="other" layoutX="153.0" layoutY="54.0" prefHeight="17.0" prefWidth="18.0" text="" />
+                  <Text layoutX="150.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="color">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -56,8 +56,8 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="button" layoutX="8.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionGetItemInfo" prefHeight="100.0" prefWidth="443.0" style="-fx-opacity: 0%;" />
                   <Pane layoutX="448.0" layoutY="-16.0" prefHeight="126.0" prefWidth="6.0" style="-fx-background-color: #00AED4;" />
+                  <Button fx:id="button" layoutY="1.0" mnemonicParsing="false" onAction="#actionGetItemInfo" prefHeight="100.0" prefWidth="448.0" style="-fx-opacity: 0%;" />
                </children>
             </AnchorPane>
          </children>

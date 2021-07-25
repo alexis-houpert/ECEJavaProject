@@ -8,22 +8,37 @@
 <AnchorPane prefHeight="111.0" prefWidth="521.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AccountInfoController">
    <children>
       <Pane prefHeight="7.0" prefWidth="532.0" style="-fx-background-color: #00a1c4;" />
-      <Label layoutX="9.0" layoutY="22.0" text="Book number : " />
-      <Label fx:id="idBook" layoutX="107.0" layoutY="22.0" text="1" />
-      <Label layoutX="9.0" layoutY="57.0" text="Car : " />
-      <Label layoutX="243.0" layoutY="21.0" text="Date start">
+      <Label layoutX="5.0" layoutY="22.0" text="Book number : ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="idBook" layoutX="93.0" layoutY="23.0" text="1" />
+      <Label layoutX="5.0" layoutY="57.0" text="Car : ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="121.0" layoutY="18.0" prefHeight="17.0" prefWidth="59.0" text="Date start">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="239.0" layoutY="57.0" prefHeight="18.0" prefWidth="59.0" text="Date end" />
-      <Label layoutX="409.0" layoutY="22.0" text="Address start" />
-      <Label layoutX="412.0" layoutY="57.0" text="Address end" />
-      <Label fx:id="carName" layoutX="43.0" layoutY="58.0" text="Audi A4" />
-      <Label fx:id="dateStartLabel" layoutX="238.0" layoutY="40.0" text="21/07/2021" />
-      <Label fx:id="dateEndLabel" layoutX="238.0" layoutY="75.0" text="21/07/2021" />
-      <Label fx:id="startAddressLabel" layoutX="398.0" layoutY="40.0" text="21 malware street" />
-      <Label fx:id="endAddressLabel" layoutX="396.0" layoutY="75.0" text="21 malware street" />
+      <Label layoutX="122.0" layoutY="53.0" prefHeight="18.0" prefWidth="59.0" text="Date end">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="199.0" layoutY="20.0" text="Address start">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="199.0" layoutY="55.0" text="Address end">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="carName" layoutX="32.0" layoutY="58.0" text="Audi A4" />
+      <Label fx:id="dateStartLabel" layoutX="120.0" layoutY="34.0" text="21/07/2021" />
+      <Label fx:id="dateEndLabel" layoutX="120.0" layoutY="69.0" text="21/07/2021" />
+      <Label fx:id="startAddressLabel" layoutX="189.0" layoutY="35.0" text="21 malware street" />
+      <Label fx:id="endAddressLabel" layoutX="189.0" layoutY="70.0" text="21 malware street" />
       <Pane layoutX="-2.0" layoutY="105.0" prefHeight="7.0" prefWidth="534.0" style="-fx-background-color: #00a1c4;" />
    </children>
 </AnchorPane>
