@@ -109,7 +109,7 @@ public class DalShopItem {
                 "', "+ item.GetCar().getHorsePower()+ ", " + item.GetCar().getNbSeats() + ", '" + item.GetCar().getColor() +
                 "');";
 
-        String queryItem = "INSERT INTO shopItem (id, serialNumber, rentPrice) " +
+        String queryItem = "INSERT INTO shopitem (id, serialNumber, rentPrice) " +
                 "VALUES ("+ item.GetId() + ", " + item.GetCar().getSerialNumber() + ", " + item.GetRentPrice() + ");";
         try {
             DbInterface.UpdateData(query);
