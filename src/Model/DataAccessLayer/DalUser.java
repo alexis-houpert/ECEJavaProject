@@ -38,7 +38,7 @@ public class DalUser {
     }
 
     public static User Login(String email, String password) throws ConnectException, SQLException {
-        User user = null;
+        User user = new User();
         String generatedPassword = null;
         try {
             // Create MessageDigest instance for MD5
@@ -67,9 +67,13 @@ public class DalUser {
             user = GetUser(email, generatedPassword);
 
 
-        if (user == null)
+        if (user == null )
         {
             throw new ConnectException("The email or/and password are incorrect");
+        }
+        if(user.GetEmail() == null)
+        {
+            throw new ConnectException("No user found");
         }
         return user;
     }

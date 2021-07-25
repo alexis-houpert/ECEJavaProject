@@ -23,6 +23,21 @@ public class HeaderController implements Initializable {
     { }
 
     @FXML
+    public void disconnect(ActionEvent event)
+    {
+        try {
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.centerOnScreen();
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void actionDisplayIndex(ActionEvent event)
     {
         try {

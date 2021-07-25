@@ -23,6 +23,7 @@
                   <Image url="@../Images/account.png" />
                </image>
             </ImageView>
+            <Button layoutX="725.0" layoutY="9.0" mnemonicParsing="false" onAction="#disconnect" text="DIsconnect" />
             
 
          </children>
