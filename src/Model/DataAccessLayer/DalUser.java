@@ -13,15 +13,13 @@ public class DalUser {
 
     public static User GetUser(String email, String hashPasswd) throws SQLException {
         // Query email to db and get Custommer object
-        String request = "SELECT * from user U where email = '" + email + "' AND password = '" + hashPasswd + "';";
+        User user = new User();
+        String query = "SELECT * from user U where email = '" + email + "' AND password = '" + hashPasswd + "';";
 
-        return DbInterface.GetUser(request);
+        return extractUser(user, query);
     }
 
-    public static User GetUserById(int id)
-    {
-        User user = new User();
-        String query = "SELECT * from user where id = "+ id +"";
+    private static User extractUser(User user, String query) {
         try {
             ResultSet rs = DbInterface.GetData(query);
             while (rs.next())
@@ -37,7 +35,14 @@ public class DalUser {
         return user;
     }
 
-    public static User Login(String email, String password) throws ConnectException, SQLException {
+    public static User GetUserById(int id)
+    {
+        User user = new User();
+        String query = "SELECT * from user where id = "+ id +"";
+        return extractUser(user, query);
+    }
+
+    public static User Login(String email, String password) throws ConnectException {
         User user = new User();
         String generatedPassword = null;
         try {
@@ -63,8 +68,12 @@ public class DalUser {
         }
 
 
-
+        try {
             user = GetUser(email, generatedPassword);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new ConnectException(throwables.getMessage());
+        }
 
 
         if (user == null )
