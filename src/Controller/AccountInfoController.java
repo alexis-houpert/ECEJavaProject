@@ -28,6 +28,10 @@ public class AccountInfoController implements Initializable {
     private Pane header;
 
     @FXML private VBox conteneur;
+    @FXML private Label email;
+    @FXML private Label firstName;
+    @FXML private Label lastName;
+    @FXML private Label address;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
@@ -49,8 +53,13 @@ public class AccountInfoController implements Initializable {
     {
         conteneur.getChildren().clear();
         List<Booking> bookings = new ArrayList<>();
+        email.setText(UserSession.getUser().GetEmail());
+        firstName.setText(UserSession.getUser().GetFirstName());
+        lastName.setText(UserSession.getUser().GetLastName());
+        address.setText(UserSession.getUser().GetAdress());
         try {
             bookings = DalShopItem.getBookingById(UserSession.getUser().GetId());
+
             for (Booking booking : bookings )
             {
                 AnchorPane item = null;

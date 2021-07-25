@@ -33,10 +33,10 @@
                      <Font size="14.0" />
                   </font>
                </Label>
-               <Label layoutX="133.0" layoutY="54.0" />
-               <Label layoutX="133.0" layoutY="87.0" />
-               <Label layoutX="133.0" layoutY="122.0" />
-               <Label layoutX="133.0" layoutY="157.0" />
+               <Label fx:id="firstName" layoutX="133.0" layoutY="54.0" />
+               <Label fx:id="lastName" layoutX="133.0" layoutY="87.0" />
+               <Label fx:id="address" layoutX="133.0" layoutY="122.0" />
+               <Label fx:id="email" layoutX="133.0" layoutY="157.0" />
             </children>
          </Pane>
          <Text layoutX="336.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My account" wrappingWidth="132.54025268554688">
