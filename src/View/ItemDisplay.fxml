@@ -23,8 +23,8 @@
                   <Label fx:id="endDateLabel" layoutX="361.0" layoutY="165.0" text="Detail 4" />
                   <Label fx:id="bookInfoMessage" layoutX="231.0" layoutY="14.0" prefHeight="18.0" prefWidth="336.0" textFill="RED" />
 
-                  <Label fx:id="horsePower" layoutX="271.0" layoutY="34.0" prefHeight="17.0" prefWidth="14.0" text="" />
-                  <Label fx:id="numberSeat" layoutX="270.0" layoutY="58.0" text="" />
+                  <Label fx:id="horsePower" layoutX="271.0" layoutY="34.0" prefHeight="18.0" prefWidth="41.0" text="" />
+                  <Label fx:id="numberSeat" layoutX="270.0" layoutY="58.0" prefHeight="18.0" prefWidth="45.0" text="" />
                   <Label fx:id="color" layoutX="315.0" layoutY="81.0" prefHeight="17.0" prefWidth="26.0" text="" />
                   <Label fx:id="price" layoutX="431.0" layoutY="43.0" prefHeight="30.0" prefWidth="38.0" text="">
                      <font>
@@ -34,8 +34,8 @@
                   <Label layoutX="436.0" layoutY="75.0" text="Price" />
                   <Text layoutX="29.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car name :" />
                   <Text layoutX="98.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car brand :" />
-                  <Label fx:id="horsePower1" layoutX="299.0" layoutY="34.0" text="hp" />
-                  <Label fx:id="horsePower11" layoutX="290.0" layoutY="58.0" text="seats" />
+                  <Label fx:id="horsePower1" layoutX="321.0" layoutY="34.0" text="hp" />
+                  <Label fx:id="horsePower11" layoutX="325.0" layoutY="58.0" text="seats" />
                   <Text layoutX="264.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data start" />
                   <Text layoutX="361.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data end" />
                   <Label fx:id="horsePower111" layoutX="271.0" layoutY="81.0" text="Color : " />

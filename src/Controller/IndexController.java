@@ -91,6 +91,7 @@ public class IndexController implements Initializable {
                     ((Label) item.lookup(Constantes.VUE_ITEM_NAME)).setText(shopItem.GetCar().getBrand() + " - " + shopItem.GetCar().getName());
                     ((Label) item.lookup(Constantes.VUE_ITEM_HORSE_POWER)).setText(shopItem.GetCar().getHorsePower().toString());
                     ((Label) item.lookup(Constantes.VUE_ITEM_NB_SEATS)).setText(shopItem.GetCar().getNbSeats().toString());
+                ((Label) item.lookup(Constantes.VUE_ITEM_PRICE)).setText(String.valueOf(shopItem.GetRentPrice()));
 
 
                 conteneur.getChildren().add(item);

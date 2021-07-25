@@ -131,8 +131,8 @@ public class DalShopItem {
                     "VALUES (NULL," +
                     "'"+booking.getUser().GetId()+"'," +
                     "'"+booking.getItem().GetId()+"'," +
-                    " '"+ new SimpleDateFormat("yyyy-MM-dd").format(booking.getStartDate()) +"'," +
-                    " '"+ new SimpleDateFormat("yyyy-MM-dd").format(booking.getEndDate()) +"' ," +
+                    " '"+ booking.getStartDate().toString() +"'," +
+                    " '"+ booking.getEndDate().toString() +"' ," +
                     " '"+ booking.getStartAdress() +"'," +
                     " '"+ booking.getEndAdress() +"');";
             DbInterface.UpdateData(query);
