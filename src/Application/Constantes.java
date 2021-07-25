@@ -25,9 +25,14 @@ public class Constantes {
     public static final String VUE_ITEM_PRICE = "#price";
     public static final String VUE_ITEM_COMPANY = "#company";
 
-    public static final String URL = "jdbc:mysql://mysql-houpert.alwaysdata.net:3306/houpert_rent_car";
-    public static final String USER = "houpert";
-    public static final String PASSWORD = "Cerise342000";
+    //public static final String URL = "jdbc:mysql://mysql-houpert.alwaysdata.net:3306/houpert_rent_car";
+    public static final String URL = "jdbc:mysql://mysql-houpert.alwaysdata.net:3306/rent_car";
+
+    //public static final String USER = "houpert";
+    public static final String USER = "root";
+
+    //public static final String PASSWORD = "Cerise342000";
+    public static final String PASSWORD = "";
 
 
 
