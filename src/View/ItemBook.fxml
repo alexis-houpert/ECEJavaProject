@@ -17,11 +17,14 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="151.0" layoutY="18.0" prefHeight="17.0" prefWidth="59.0" text="Date start">
+
+      <Label layoutX="163.0" layoutY="20.0" prefHeight="17.0" prefWidth="59.0" text="Date start">
+
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+
       <Label layoutX="152.0" layoutY="52.0" prefHeight="18.0" prefWidth="59.0" text="Date end">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -39,6 +42,25 @@
       <Label fx:id="dateEndLabel" layoutX="151.0" layoutY="69.0" text="21/07/2021" />
       <Label fx:id="startAddressLabel" layoutX="255.0" layoutY="34.0" text="21 malware street" />
       <Label fx:id="endAddressLabel" layoutX="255.0" layoutY="69.0" text="21 malware street" />
+
+      <Label layoutX="163.0" layoutY="53.0" prefHeight="18.0" prefWidth="59.0" text="Date end">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="299.0" layoutY="20.0" text="Address start">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="301.0" layoutY="53.0" text="Address end">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="carName" layoutX="32.0" layoutY="58.0" text="Audi A4" />
+      <Label fx:id="dateStartLabel" layoutX="162.0" layoutY="35.0" text="21/07/2021" />
+      <Label fx:id="dateEndLabel" layoutX="162.0" layoutY="69.0" text="21/07/2021" />
+      <Label fx:id="startAddressLabel" layoutX="289.0" layoutY="34.0" text="21 malware street" />
+      <Label fx:id="endAddressLabel" layoutX="289.0" layoutY="69.0" text="21 malware street" />
+
       <Pane layoutX="-2.0" layoutY="105.0" prefHeight="7.0" prefWidth="534.0" style="-fx-background-color: #00a1c4;" />
    </children>
 </AnchorPane>

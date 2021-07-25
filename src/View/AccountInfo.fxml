@@ -40,8 +40,8 @@
                <Label fx:id="lastName" layoutX="117.0" layoutY="55.0" text="sqd" />
                <Label fx:id="address" layoutX="113.0" layoutY="79.0" text="dqsd" />
                <Label fx:id="email" layoutX="116.0" layoutY="106.0" text="dqs" />
-               <PieChart fx:id="pieChart" layoutX="-4.0" layoutY="129.0" prefHeight="197.0" prefWidth="267.0" />
-               <Text layoutX="203.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History :" wrappingWidth="104.14028930664062">
+               <PieChart fx:id="pieChart" layoutX="-23.0" layoutY="110.0" prefHeight="227.0" prefWidth="313.0" />
+               <Text layoutX="192.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History :" wrappingWidth="104.14028930664062">
                   <font>
                      <Font size="20.0" />
                   </font>
