@@ -22,8 +22,8 @@
                   <Label fx:id="startDateLabel" layoutX="271.0" layoutY="165.0" text="Detail 3" />
                   <Label fx:id="endDateLabel" layoutX="367.0" layoutY="165.0" text="Detail 4" />
                   <Label fx:id="bookInfoMessage" layoutX="231.0" layoutY="14.0" prefHeight="18.0" prefWidth="336.0" textFill="RED" />
-                  <Label layoutX="271.0" layoutY="34.0" text="horsePower" />
-                  <Label layoutX="270.0" layoutY="58.0" text="numberOfSeat" />
+                  <Label fx:id="horsePower" layoutX="271.0" layoutY="34.0" text="horsePower" />
+                  <Label fx:id="numberSeat" layoutX="270.0" layoutY="58.0" text="numberOfSeat" />
                   <Label layoutX="270.0" layoutY="83.0" text="color" />
                   <Label layoutX="424.0" layoutY="58.0" text="price-bdd" />
                   <Label layoutX="436.0" layoutY="75.0" text="Price" />
