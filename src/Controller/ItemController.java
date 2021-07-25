@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +26,9 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -34,14 +38,17 @@ public class ItemController implements Initializable{
     @FXML private Pane header;
     @FXML private Label name;
     @FXML private Label brand;
-
+    @FXML private Label horsePower;
+    @FXML private Label color;
+    @FXML private Label numberSeat;
+    @FXML private Label price;
 
     @FXML private Label startDateLabel;
     @FXML private Label endDateLabel;
 
     private ShopItem item;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String startAddress;
     private String endAddress;
 
@@ -59,22 +66,24 @@ public class ItemController implements Initializable{
         Button b = (Button)node;
 
         try {
-            String start = ((TextField)b.getScene().lookup("#startDateText")).getText();
-            String end = ((TextField)b.getScene().lookup("#endDateText")).getText();
-            if (start == null | start.isEmpty() | end == null |end.isEmpty())
+            LocalDate localStartDate = ((DatePicker)b.getScene().lookup("#startDateText")).getValue();
+            LocalDate localendDate = ((DatePicker)b.getScene().lookup("#endDateText")).getValue();
+            if (localStartDate == null && localendDate == null)
             {
+
                 throw new IllegalArgumentException("Please enter your start date and your end date with the format yyyy-MM-dd");
+
             }
 
             DateFormat originalFormat = new SimpleDateFormat("dd/MM/yyyy");
             DateFormat targetFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-            Date date = originalFormat.parse(start);
+            /*Date date = originalFormat.format(startDate.);
             String target = targetFormat.format(date);
             startDate = targetFormat.parse(target);
             date = originalFormat.parse(end);
             target = targetFormat.format(date);
-            endDate = targetFormat.parse(target);
+            endDate = targetFormat.parse(target);*/
 
             startAddress = ((TextField)b.getScene().lookup("#startAddressText")).getText();
             endAddress = ((TextField)b.getScene().lookup("#endAddressText")).getText();
@@ -92,7 +101,7 @@ public class ItemController implements Initializable{
                 window.setScene(tableViewScene);
                 window.centerOnScreen();
                 ItemController controller = fxmlLoader.<ItemController>getController();
-                controller.GetShopItemById(id, startDate, endDate, startAddress, endAddress);
+                controller.GetShopItemById(id, localStartDate, localendDate, startAddress, endAddress);
                 window.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -104,9 +113,9 @@ public class ItemController implements Initializable{
             Label lab = (Label)b.getScene().lookup("#error");
             lab.setText(e.getMessage());
         }
-        catch (ParseException e) {
+        /*catch (ParseException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public void initHeader()
@@ -123,12 +132,17 @@ public class ItemController implements Initializable{
     {
         name.setText(item.GetCar().getName());
         brand.setText(item.GetCar().getBrand());
-        startDateLabel.setText(new SimpleDateFormat("dd/MM/yyyy").format(startDate));
-        endDateLabel.setText(new SimpleDateFormat("dd/MM/yyyy").format(endDate));
+        horsePower.setText(item.GetCar().getHorsePower().toString());
+        numberSeat.setText(item.GetCar().getNbSeats().toString());
+        color.setText(item.GetCar().getColor());
+        price.setText(String.valueOf(item.GetRentPrice()));
+
+        startDateLabel.setText(startDate.toString());
+        endDateLabel.setText(endDate.toString());
 
     }
 
-    public void GetShopItemById(int id, Date start, Date end, String startAddress, String endAddress)
+    public void GetShopItemById(int id, LocalDate start, LocalDate end, String startAddress, String endAddress)
     {
         this.startDate = start;
         this.endDate = end;

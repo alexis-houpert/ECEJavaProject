@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,12 +28,11 @@ public class DalShopItem {
         return results;
     }
 
-    public static List<ShopItem> GetShopItems(Date startDate, Date endDate)
+    public static List<ShopItem> GetShopItems(LocalDate startDate, LocalDate endDate)
     {
         List<ShopItem> results = new ArrayList<ShopItem>();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String startDateFormat = formatter.format(startDate);
-        String endDateFormat = formatter.format(endDate);
+        String startDateFormat = startDate.toString();
+        String endDateFormat = endDate.toString();
         try
         {
             String query = "Select * from car join shopitem on car.serialNumber = shopitem.serialNumber " +
@@ -120,8 +121,32 @@ public class DalShopItem {
 
     public static List<Booking> getBookingById(int userId) throws SQLException
     {
-        List<Booking> bookings = new ArrayList<>();
         String query = "Select * from booking where userId = "+ userId +";";
+        return extractBookings(userId, query);
+    }
+
+    public static List<Booking> getAllBooking() throws SQLException, ParseException {
+        List<Booking> results = new ArrayList<>();
+        String query = "Select * from booking;";
+        ResultSet rs = DbInterface.GetData(query);
+        while (rs.next())
+        {
+            User user = DalUser.GetUserById(rs.getInt(2));
+            ShopItem item = DalShopItem.GetShopItemById(rs.getInt(3));
+            Date start = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString(4));
+            Date end = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString(5));
+
+            LocalDate lStart = start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate lEnd = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            results.add(new Booking(rs.getInt(1),user , item, lStart, lEnd, rs.getString(6), rs.getString(7)));
+        }
+
+        return results;
+    }
+
+    private static List<Booking> extractBookings(int userId, String query) {
+        List<Booking> bookings = new ArrayList<>();
         try {
             ResultSet rs = DbInterface.GetData(query);
             while (rs.next())
@@ -131,7 +156,10 @@ public class DalShopItem {
                 Date start = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString(4));
                 Date end = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString(5));
 
-                bookings.add(new Booking(rs.getInt(1),user , item, start, end, rs.getString(6), rs.getString(7)));
+                LocalDate lStart = start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                LocalDate lEnd = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+                bookings.add(new Booking(rs.getInt(1),user , item, lStart, lEnd, rs.getString(6), rs.getString(7)));
             }
         } catch (SQLException | ParseException throwables) {
             throwables.printStackTrace();

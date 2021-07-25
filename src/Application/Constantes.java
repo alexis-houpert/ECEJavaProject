@@ -17,6 +17,10 @@ public class Constantes {
     public static final String VUE_BOOK_ADDRESS_START = "#startAddressLabel";
     public static final String VUE_BOOK_ADDRESS_END = "#endAddressLabel";
 
+    public static final String PORSCHE = "Porsche";
+    public static final String AUDI = "Audi";
+    public static final String MERCEDES = "Mercedes";
+    public static final String VOLKSWAGEN = "Volkswagen";
 
     public static final String VUE_ITEM_PRICE = "#price";
     public static final String VUE_ITEM_COMPANY = "#company";

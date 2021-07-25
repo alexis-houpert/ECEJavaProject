@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -26,7 +27,6 @@
           <Button fx:id="createAccountButton" alignment="BOTTOM_CENTER" layoutX="42.0" layoutY="216.0" mnemonicParsing="false" onAction="#actionCreateAccount" prefHeight="27.0" prefWidth="266.0" text="SIGN UP" />
           <Button fx:id="quitButton" alignment="BOTTOM_CENTER" layoutX="42.0" layoutY="251.0" mnemonicParsing="false" onAction="#actionQuit" prefHeight="27.0" prefWidth="266.0" text="EXIT" />
             <TextField fx:id="email" layoutX="42.0" layoutY="41.0" prefHeight="25.0" prefWidth="266.0" />
-            <TextField fx:id="passwd" layoutX="42.0" layoutY="121.0" prefHeight="25.0" prefWidth="266.0" />
             <Label layoutX="42.0" layoutY="14.0" prefHeight="27.0" prefWidth="84.0" text="Email" textFill="WHITE">
                <font>
                   <Font size="16.0" />
@@ -38,6 +38,7 @@
                </font>
             </Label>
             <Label fx:id="errorMessage" layoutX="53.0" layoutY="-22.0" prefHeight="44.0" prefWidth="266.0" />
+            <PasswordField fx:id="passwd" layoutX="42.0" layoutY="121.0" prefHeight="25.0" prefWidth="266.0" />
          </children>
       </Pane>
       <ImageView fitHeight="92.0" fitWidth="166.0" layoutX="214.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">

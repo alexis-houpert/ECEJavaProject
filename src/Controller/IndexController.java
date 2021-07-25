@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +25,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -34,8 +38,8 @@ public class IndexController implements Initializable {
     @FXML private VBox conteneur;
     @FXML public Button addButton;
 
-    @FXML private TextField startDateText;
-    @FXML private TextField endDateText;
+    @FXML private DatePicker startDateText;
+    @FXML private DatePicker endDateText;
     @FXML private TextField startAddressText;
     @FXML private TextField endAddressText;
 
@@ -127,13 +131,22 @@ public class IndexController implements Initializable {
     @FXML
     private void searchShopItem(ActionEvent event) throws Exception
     {
-        Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(startDateText.getText());
-        Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(endDateText.getText());
-        String startAdress = startAddressText.getText();
-        String endAddress = endAddressText.getText();
+        LocalDate startLocalDate = startDateText.getValue();
+        LocalDate endLocalDate = endDateText.getValue();
+        if (startLocalDate != null && endLocalDate != null)
+        {
+            String startAdress = startAddressText.getText();
+            String endAddress = endAddressText.getText();
 
-        this.searchShopItem = new SearchShopItem(startDate, endDate, startAdress, endAddress);
-        initData();
+            this.searchShopItem = new SearchShopItem(startLocalDate, endLocalDate, startAdress, endAddress);
+            initData();
+
+        }
+
+
+
+
+
     }
 
     @FXML

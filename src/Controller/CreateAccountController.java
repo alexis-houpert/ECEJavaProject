@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -30,7 +31,7 @@ public class CreateAccountController implements Initializable {
     @FXML private Pane textFields;
 
     @FXML private TextField emailText;
-    @FXML private TextField passwordText;
+    @FXML private PasswordField passwordText;
     @FXML private TextField firstNameText;
     @FXML private TextField lastNameText;
     @FXML private TextField adressText;

@@ -9,6 +9,8 @@ import Model.User.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -17,6 +19,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,9 @@ public class AccountInfoController implements Initializable {
     @FXML private Label firstName;
     @FXML private Label lastName;
     @FXML private Label address;
+
+    @FXML private PieChart pieChart;
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
@@ -57,6 +63,9 @@ public class AccountInfoController implements Initializable {
         firstName.setText(UserSession.getUser().GetFirstName());
         lastName.setText(UserSession.getUser().GetLastName());
         address.setText(UserSession.getUser().GetAdress());
+
+
+
         try {
             bookings = DalShopItem.getBookingById(UserSession.getUser().GetId());
 
@@ -70,10 +79,8 @@ public class AccountInfoController implements Initializable {
                     ((Label) item.lookup(Constantes.VUE_BOOK_ID)).setText(String.valueOf((Integer) booking.getId()));
                     ((Label) item.lookup(Constantes.VUE_BOOK_NAME)).setText(booking.getItem().GetCar().getBrand() + " " +
                             booking.getCar().getName());
-                    ((Label) item.lookup(Constantes.VUE_BOOK_DATE_START)).setText(new SimpleDateFormat("yyyy-MM-dd")
-                            .format(booking.getStartDate()));
-                    ((Label) item.lookup(Constantes.VUE_BOOK_DATE_END)).setText(new SimpleDateFormat("yyyy-MM-dd")
-                            .format(booking.getEndDate()));
+                    ((Label) item.lookup(Constantes.VUE_BOOK_DATE_START)).setText(booking.getStartDate().toString());
+                    ((Label) item.lookup(Constantes.VUE_BOOK_DATE_END)).setText(booking.getEndDate().toString());
                     if(booking.getStartAdress() != null)
                     {
                         ((Label) item.lookup(Constantes.VUE_BOOK_ADDRESS_START)).setText(booking.getStartAdress());
@@ -96,6 +103,66 @@ public class AccountInfoController implements Initializable {
     } catch (SQLException throwables) {
         throwables.printStackTrace();
     }
+      caclculPieChart();
     }
+
+    public void caclculPieChart()
+    {
+        Integer cptAudi = 0;
+         Integer cptMercedes = 0;
+         Integer cptPorsche = 0;
+         Integer cptVolkswagen = 0;
+         Integer cptOther = 0;
+
+        List<Booking> allBooking = new ArrayList<>();
+        try {
+            allBooking = DalShopItem.getAllBooking();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        for (Booking book : allBooking)
+        {
+            if(book.getCar().getBrand().equals(Constantes.AUDI))
+            {
+                cptAudi++;
+            }
+            else if (book.getCar().getBrand().equals(Constantes.MERCEDES))
+            {
+                cptMercedes++;
+            }
+            else if (book.getCar().getBrand().equals(Constantes.PORSCHE))
+            {
+                cptPorsche++;
+            }
+            else if (book.getCar().getBrand().equals(Constantes.VOLKSWAGEN))
+            {
+                cptVolkswagen++;
+            }
+            else if (book.getCar().getBrand().equals(""))
+            {
+                cptOther++;
+            }
+        }
+
+
+        PieChart.Data slice1 = new PieChart.Data(Constantes.PORSCHE, cptPorsche);
+        PieChart.Data slice2 = new PieChart.Data(Constantes.MERCEDES, cptMercedes);
+        PieChart.Data slice3 = new PieChart.Data(Constantes.AUDI, cptAudi);
+        PieChart.Data slice4 = new PieChart.Data(Constantes.VOLKSWAGEN, cptVolkswagen);
+        PieChart.Data slice5 = new PieChart.Data("Other", cptOther);
+
+        pieChart.getData().add(slice1);
+        pieChart.getData().add(slice2);
+        pieChart.getData().add(slice3);
+        pieChart.getData().add(slice4);
+        pieChart.getData().add(slice5);
+
+        pieChart.setLegendSide(Side.LEFT);
+    }
+
+
 
 }

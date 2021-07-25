@@ -5,6 +5,7 @@ import Model.User.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Booking {
@@ -28,11 +29,11 @@ public class Booking {
         return car;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
@@ -46,13 +47,13 @@ public class Booking {
 
     private Car car;
 
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     private String startAdress;
     private String endAdress;
 
-    public Booking(int id, User user, ShopItem item, Date startDate, Date endDate, String startAdress, String endAdress) {
+    public Booking(int id, User user, ShopItem item, LocalDate startDate, LocalDate endDate, String startAdress, String endAdress) {
         this.id = id;
         this.user = user;
         this.item = item;
