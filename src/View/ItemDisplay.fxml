@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ItemController">
    <children>
-      <Pane fx:id="header" prefHeight="47.0" prefWidth="600.0" />
+      <Pane fx:id="header" layoutY="9.0" prefHeight="38.0" prefWidth="391.0" />
       <Pane layoutY="53.0" prefHeight="348.0" prefWidth="600.0" style="-fx-background-color: #00AED4;">
          <children>
             <Pane layoutX="10.0" layoutY="13.0" prefHeight="329.0" prefWidth="581.0">
