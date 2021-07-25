@@ -88,11 +88,11 @@ public class DalShopItem {
 
             String query = "INSERT INTO booking (id, userId, shopItemId, dateStartBook, " +
                     "dateEndBook, adressStartBook, adressEndBook) " +
-                    "VALUES ('"+booking.getId() +"'," +
+                    "VALUES (NULL," +
                     "'"+booking.getUser().GetId()+"'," +
                     "'"+booking.getItem().GetId()+"'," +
-                    " '"+booking.getStartDate()+"'," +
-                    " '"+ booking.getEndDate() +"' ," +
+                    " '"+ new SimpleDateFormat("yyyy-MM-dd").format(booking.getStartDate()) +"'," +
+                    " '"+ new SimpleDateFormat("yyyy-MM-dd").format(booking.getEndDate()) +"' ," +
                     " '"+ booking.getStartAdress() +"'," +
                     " '"+ booking.getEndAdress() +"');";
             DbInterface.UpdateData(query);

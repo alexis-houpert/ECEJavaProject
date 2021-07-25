@@ -9,14 +9,20 @@ public class User implements UserInterface {
     private String hashPasswd;
     private String adress;
 
+    public User()
+    {
+
+    }
+
     public User(String email, String hashPasswd)
     {
         this.email = email;
         this.hashPasswd = hashPasswd;
     }
 
-    public User(String email, String hashPasswd, String firstName, String lastName, String adress)
+    public User(int id, String email, String hashPasswd, String firstName, String lastName, String adress)
     {
+        this.id = id;
         this.email = email;
         this.hashPasswd = hashPasswd;
         this.firstName = firstName;

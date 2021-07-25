@@ -131,7 +131,7 @@ public class CreateAccountController implements Initializable {
 
         try {
             Customer.UpdateNbCustomer();
-            DalUser.AddCustomer(new Customer(emailText.getText().toLowerCase(Locale.ROOT), generatedPassword, Customer.GetNewNumCustomer(),
+            DalUser.AddCustomer(new Customer(Customer.GetNewNumCustomer(),emailText.getText().toLowerCase(Locale.ROOT), generatedPassword, Customer.GetNewNumCustomer(),
                     firstNameText.getText(),
                     lastNameText.getText(), adressText.getText()));
         } catch (SQLException throwables) {

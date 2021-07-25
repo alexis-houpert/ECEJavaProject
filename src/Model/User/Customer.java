@@ -9,9 +9,9 @@ public class Customer extends User {
 
     private static int nbCustommer = 0;
 
-    public Customer( String email,  String hashPassword, int numCust, String firstName, String lastName, String adress)
+    public Customer(int id, String email,  String hashPassword, int numCust, String firstName, String lastName, String adress)
     {
-        super(email, hashPassword, firstName, lastName, adress);
+        super(id, email, hashPassword, firstName, lastName, adress);
         this.numCust = numCust;
     }
 

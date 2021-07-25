@@ -116,17 +116,17 @@ public class DbInterface {
 
     public static User GetUser(String request) throws SQLException {
         Connection dbConnect = null;
-
+            User user = new User();
             // create a connection to the database
             dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
             Statement stmt = dbConnect.createStatement();
             ResultSet rs = stmt.executeQuery(request);
             while (rs.next())
             {
-                return new User(rs.getString(1), rs.getString(2));
-
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(7), rs.getString(8), rs.getString(9));
+                break;
             }
-            return null;
+            return user;
     }
 
 

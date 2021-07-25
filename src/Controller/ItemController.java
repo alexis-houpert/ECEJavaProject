@@ -66,10 +66,15 @@ public class ItemController implements Initializable{
                 throw new IllegalArgumentException("Please enter your start date and your end date with the format yyyy-MM-dd");
             }
 
-            DateFormat originalFormat = new SimpleDateFormat("dd/mm/yyyy");
-            DateFormat targetFormat = new SimpleDateFormat("yyyy-mm-dd");
+            DateFormat originalFormat = new SimpleDateFormat("dd/MM/yyyy");
+            DateFormat targetFormat = new SimpleDateFormat("yyyy-MM-dd");
+
             Date date = originalFormat.parse(start);
-            //startDate = targetFormat.par
+            String target = targetFormat.format(date);
+            startDate = targetFormat.parse(target);
+            date = originalFormat.parse(end);
+            target = targetFormat.format(date);
+            endDate = targetFormat.parse(target);
 
             startAddress = ((TextField)b.getScene().lookup("#startAddressText")).getText();
             endAddress = ((TextField)b.getScene().lookup("#endAddressText")).getText();
@@ -87,7 +92,7 @@ public class ItemController implements Initializable{
                 window.setScene(tableViewScene);
                 window.centerOnScreen();
                 ItemController controller = fxmlLoader.<ItemController>getController();
-                controller.GetShopItemById(id);
+                controller.GetShopItemById(id, startDate, endDate, startAddress, endAddress);
                 window.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -118,10 +123,17 @@ public class ItemController implements Initializable{
     {
         name.setText(item.GetCar().getName());
         brand.setText(item.GetCar().getBrand());
+        startDateLabel.setText(new SimpleDateFormat("dd/MM/yyyy").format(startDate));
+        endDateLabel.setText(new SimpleDateFormat("dd/MM/yyyy").format(endDate));
+
     }
 
-    public void GetShopItemById(int id)
+    public void GetShopItemById(int id, Date start, Date end, String startAddress, String endAddress)
     {
+        this.startDate = start;
+        this.endDate = end;
+        this.startAddress = startAddress;
+        this.endAddress = endAddress;
         initHeader();
         this.item = DalShopItem.GetShopItemById(id);
         InitView();

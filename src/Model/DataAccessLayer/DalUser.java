@@ -20,7 +20,7 @@ public class DalUser {
         return DbInterface.GetUser(request);
     }
 
-    public static User Login(String email, String password) throws ConnectException {
+    public static User Login(String email, String password) throws ConnectException, SQLException {
         User user = null;
         String generatedPassword = null;
         try {
@@ -46,13 +46,9 @@ public class DalUser {
         }
 
 
-        try {
+
             user = GetUser(email, generatedPassword);
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
+
 
         if (user == null)
         {
