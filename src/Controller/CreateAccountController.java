@@ -36,6 +36,7 @@ public class CreateAccountController implements Initializable {
     @FXML private TextField adressText;
 
     @FXML private Pane errorsMessage;
+    @FXML private Label errorAccountExist;
     @FXML private Label errorEmail;
     @FXML private Label errorPasswd;
     @FXML private Label errorFirstName;
@@ -99,10 +100,7 @@ public class CreateAccountController implements Initializable {
             flag = true;
         }
 
-        if (flag)
-        {
-            return;
-        }
+
 
         String password = passwordText.getText();
         String generatedPassword = null;
@@ -136,8 +134,17 @@ public class CreateAccountController implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        catch (IllegalArgumentException e)
+        {
+           errorAccountExist.setText(e.getMessage());
+           errorAccountExist.setStyle("-fx-text-fill: #f62828");
+           flag = true;
+        }
 
-
+        if (flag)
+        {
+            return;
+        }
         this.changeView("Login", event);
 
     }

@@ -24,35 +24,6 @@
                   <TextField fx:id="firstNameText" layoutX="127.0" layoutY="90.0" />
                   <TextField fx:id="lastNameText" layoutX="127.0" layoutY="125.0" />
                   <TextField fx:id="adressText" layoutX="127.0" layoutY="174.0" />
-                  <Pane fx:id="errorsMessage" layoutX="237.0" layoutY="-68.0" prefHeight="206.0" prefWidth="175.0">
-                     <children>
-                        <Label fx:id="errorEmail" prefHeight="26.0" prefWidth="142.0" wrapText="true">
-                           <font>
-                              <Font size="9.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="errorPasswd" layoutY="45.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
-                           <font>
-                              <Font size="9.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="errorFirstName" layoutY="100.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
-                           <font>
-                              <Font size="9.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="errorLastName" layoutY="126.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
-                           <font>
-                              <Font size="9.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="errorAdress" layoutY="173.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
-                           <font>
-                              <Font size="9.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
                   <Label layoutX="74.0" layoutY="178.0" text="Adress" />
                   <Label layoutX="64.0" layoutY="130.0" text="Last Name" />
                   <Label layoutX="63.0" layoutY="94.0" text="First Name" />
@@ -61,6 +32,40 @@
                </children>
             </Pane>
             <Button layoutX="269.0" layoutY="282.0" mnemonicParsing="false" onAction="#createAccount" text="SIGN UP" />
+            <Pane fx:id="errorsMessage" layoutX="412.0" layoutY="49.0" prefHeight="233.0" prefWidth="175.0">
+               <children>
+                  <Label fx:id="errorEmail" prefHeight="26.0" prefWidth="142.0" wrapText="true">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorPasswd" layoutY="45.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorFirstName" layoutY="100.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorLastName" layoutY="126.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorAdress" layoutY="173.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorAccountExist" layoutY="199.0" prefHeight="26.0" prefWidth="142.0" wrapText="true">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Pane fx:id="header" prefHeight="62.0" prefWidth="600.0">

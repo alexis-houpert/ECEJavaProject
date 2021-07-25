@@ -13,7 +13,7 @@ public class DalUser {
 
     public static User GetUser(String email, String hashPasswd) throws SQLException {
         // Query email to db and get Custommer object
-        String request = "SELECT * from User U where email = '" + email + "' AND password = '" + hashPasswd + "';";
+        String request = "SELECT * from user U where email = '" + email + "' AND password = '" + hashPasswd + "';";
 
         return DbInterface.GetUser(request);
     }
@@ -74,7 +74,29 @@ public class DalUser {
         return user;
     }
 
-    public static void AddUser(User user) throws SQLException {
+    public static boolean IsAccountExist(String email)
+    {
+        String request = "SELECT email from user where email = '" +email+"';";
+        try {
+            ResultSet rs = DbInterface.GetData(request);
+            int cpt = 0;
+            while (rs.next())
+            {
+                cpt++;
+            }
+            return cpt != 0;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return true;
+    }
+
+    public static void AddUser(User user) throws IllegalArgumentException, SQLException {
+
+        if(IsAccountExist(user.GetEmail()))
+        {
+            throw new IllegalArgumentException("This user already existing");
+        }
 
         if (user.GetFirstName() != null || !user.GetFirstName().isEmpty())
         {
