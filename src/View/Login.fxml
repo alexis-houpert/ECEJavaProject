@@ -3,23 +3,62 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #00AED4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
   <children>
-    <Button fx:id="loginButton" alignment="BOTTOM_CENTER" layoutX="67.0" layoutY="272.0" mnemonicParsing="false" onAction="#actionLogin" prefHeight="27.0" prefWidth="266.0" text="Sign In" />
-    <Button fx:id="createAccountButton" alignment="BOTTOM_CENTER" layoutX="65.0" layoutY="413.0" mnemonicParsing="false" onAction="#actionCreateAccount" prefHeight="27.0" prefWidth="266.0" text="SIGN UP" />
-    <Button fx:id="quitButton" alignment="BOTTOM_CENTER" layoutX="67.0" layoutY="452.0" mnemonicParsing="false" onAction="#actionQuit" prefHeight="27.0" prefWidth="266.0" text="QUITTER" />
-      <Label alignment="CENTER" layoutX="117.0" layoutY="29.0" prefHeight="44.0" prefWidth="166.0" text="Rent a Car">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
-      <TextField fx:id="email" layoutX="124.0" layoutY="151.0" />
-      <TextField fx:id="passwd" layoutX="125.0" layoutY="235.0" />
-      <Label layoutX="125.0" layoutY="124.0" prefHeight="27.0" prefWidth="84.0" text="Email" />
-      <Label layoutX="125.0" layoutY="199.0" prefHeight="27.0" prefWidth="84.0" text="Password" />
-      <Label fx:id="errorMessage" layoutX="67.0" layoutY="314.0" prefHeight="44.0" prefWidth="266.0" />
+      <Pane prefHeight="59.0" prefWidth="400.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label alignment="CENTER" layoutX="117.0" layoutY="8.0" prefHeight="44.0" prefWidth="166.0" text="Rent a Car">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="300.0" prefHeight="292.0" prefWidth="371.0" style="-fx-background-color: #00a1c4;">
+         <children>
+          <Button fx:id="loginButton" alignment="BOTTOM_CENTER" layoutX="42.0" layoutY="179.0" mnemonicParsing="false" onAction="#actionLogin" prefHeight="27.0" prefWidth="266.0" text="SIGN IN" />
+          <Button fx:id="createAccountButton" alignment="BOTTOM_CENTER" layoutX="42.0" layoutY="216.0" mnemonicParsing="false" onAction="#actionCreateAccount" prefHeight="27.0" prefWidth="266.0" text="SIGN UP" />
+          <Button fx:id="quitButton" alignment="BOTTOM_CENTER" layoutX="42.0" layoutY="251.0" mnemonicParsing="false" onAction="#actionQuit" prefHeight="27.0" prefWidth="266.0" text="EXIT" />
+            <TextField fx:id="email" layoutX="42.0" layoutY="41.0" prefHeight="25.0" prefWidth="266.0" />
+            <TextField fx:id="passwd" layoutX="42.0" layoutY="121.0" prefHeight="25.0" prefWidth="266.0" />
+            <Label layoutX="42.0" layoutY="14.0" prefHeight="27.0" prefWidth="84.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="42.0" layoutY="94.0" prefHeight="27.0" prefWidth="84.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorMessage" layoutX="53.0" layoutY="-22.0" prefHeight="44.0" prefWidth="266.0" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="92.0" fitWidth="166.0" layoutX="214.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/intro2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="105.0" fitWidth="164.0" layoutX="21.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/intro3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="166.0" layoutX="21.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/intro.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="166.0" layoutX="214.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/intro4.jpg" />
+         </image>
+      </ImageView>
   </children>
 </AnchorPane>
