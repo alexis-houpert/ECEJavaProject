@@ -1,5 +1,6 @@
 package Model.DbConnect;
 import Application.Constantes;
+import Model.DataAccessLayer.DalShopItem;
 import Model.Shop.Car;
 import Model.Shop.ShopItem;
 import Model.User.User;
@@ -9,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DbInterface {
+
+    static Connection dbConnect;
 
     /**
      * This method establish a connection to the database, execute the query and return result
@@ -60,12 +63,7 @@ public class DbInterface {
             Statement stmt= dbConnect.createStatement();
 
             ResultSet rs = stmt.executeQuery("Select * from car, shopitem where car.serialNumber = shopitem.serialNumber ");
-            while (rs.next()) {
-                Car car = new Car(rs.getString(2), rs.getString(3), rs.getInt(1),
-                        rs.getInt(4), rs.getInt(5), rs.getString(6));
-
-                results.add(new ShopItem(car, rs.getInt(8)));
-            }
+            DalShopItem.extractShopItems(results, rs);
             return results;
 
         } catch(SQLException e) {
@@ -79,6 +77,41 @@ public class DbInterface {
             }
         }
         return results;
+    }
+
+    public static void CloseConnection()
+    {
+        try{
+            if(dbConnect != null)
+                dbConnect.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static ResultSet GetData(String query) throws SQLException
+    {
+        try {
+            // create a connection to the database
+            dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
+
+            Statement stmt= dbConnect.createStatement();
+
+            ResultSet rs = stmt.executeQuery(query);
+
+            return rs;
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void UpdateData(String query) throws SQLException
+    {
+        dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
+        Statement stmt= dbConnect.createStatement();
+        stmt.executeUpdate(query);
     }
 
     public static User GetUser(String request) throws SQLException {
@@ -95,6 +128,7 @@ public class DbInterface {
             }
             return null;
     }
+
 
 
     public static void InsertUser(String request)  throws SQLException {
@@ -125,10 +159,10 @@ public class DbInterface {
     public static void main(String[] arg) {
 
         try {
-            List<Car> rs = DbInterface.GetCars("select * from car");
-            for(Car car : rs)
+            ResultSet rs = DbInterface.GetData("select * from car");
+            while (rs.next())
             {
-                System.out.println(car.getName() + car.getSerialNumber() + car.getNbSeats());
+                System.out.println(rs.getString(2));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

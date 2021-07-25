@@ -2,7 +2,7 @@ package Model.User;
 
 public interface UserInterface
 {
-    public int GetNum();
+    public int GetId();
     public String GetFirstName();
     public String GetLastName();
     public String GetEmail();

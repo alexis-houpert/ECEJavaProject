@@ -2,6 +2,8 @@ package Controller;
 
 import Model.DataAccessLayer.DalUser;
 import Model.Exception.ConnectException;
+import Model.User.User;
+import Model.User.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,7 +63,8 @@ public class LoginController implements Initializable {
         String passwd = this.passwd.getText();
         try
         {
-            DalUser.Login(email, passwd);
+            User user = DalUser.Login(email, passwd);
+            UserSession.setUser(user);
             this.changeView("IndexShop", event);
         }
         catch (ConnectException e)

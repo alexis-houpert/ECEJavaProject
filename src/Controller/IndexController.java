@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -19,6 +20,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class IndexController implements Initializable {
@@ -27,15 +30,22 @@ public class IndexController implements Initializable {
 
     @FXML private VBox conteneur;
 
+    @FXML private TextField startDateText;
+    @FXML private TextField endDateText;
+    @FXML private TextField startAddressText;
+    @FXML private TextField endAddressText;
+
+
     private SearchShopItem searchShopItem;
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
     {
         initHeader();
+        searchShopItem = new SearchShopItem();
         initData();
-        //create model object
-        //Load Compnents here
+
     }
 
 
@@ -52,8 +62,7 @@ public class IndexController implements Initializable {
 
     public void initData()
     {
-        searchShopItem = new SearchShopItem();
-
+        conteneur.getChildren().clear();
         for (ShopItem shopItem : searchShopItem.GetListShopItem() )
         {
             AnchorPane item = null;
@@ -65,6 +74,7 @@ public class IndexController implements Initializable {
                     {
                         throw new IllegalArgumentException("Conteneur non trouvé dans le FXML");
                     }
+                item.lookup("#button").setId(shopItem.GetId().toString());
                     ((Label) item.lookup(Constantes.VUE_ITEM_NAME)).setText(shopItem.GetCar().getBrand() + " - " + shopItem.GetCar().getName());
                     ((Label) item.lookup(Constantes.VUE_ITEM_HORSE_POWER)).setText(shopItem.GetCar().getHorsePower().toString());
                     ((Label) item.lookup(Constantes.VUE_ITEM_NB_SEATS)).setText(shopItem.GetCar().getNbSeats().toString());
@@ -102,15 +112,7 @@ public class IndexController implements Initializable {
         }
     }
 
-    /**
-     * Change vue to the detail for a item in the list
-     * @param event
-     * @throws Exception
-     */
-    @FXML
-    private void actionDisplayItem(ActionEvent event) throws Exception {
-        this.changeView("ShopItem", event);
-    }
+
 
     /**
      * Change the vue to display user informations
@@ -120,5 +122,18 @@ public class IndexController implements Initializable {
     @FXML
     private void actionAccountInfo(ActionEvent event) throws Exception {
         this.changeView("AccountInfo", event);
+    }
+
+
+    @FXML
+    private void searchShopItem(ActionEvent event) throws Exception
+    {
+        Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(startDateText.getText());
+        Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(endDateText.getText());
+        String startAdress = startAddressText.getText();
+        String endAddress = endAddressText.getText();
+
+        this.searchShopItem = new SearchShopItem(startDate, endDate, startAdress, endAddress);
+        initData();
     }
 }

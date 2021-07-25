@@ -37,27 +37,6 @@ public class HeaderController implements Initializable {
         }
     }
 
-    /**
-     * Change la vue actuelle
-     * @param viewName
-     * @param event
-     */
-    private void changeView(String viewName, ActionEvent event) {
-        try {
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("../View/" + viewName + ".fxml"));
-            Scene tableViewScene = new Scene(tableViewParent);
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            window.setScene(tableViewScene);
-            window.centerOnScreen();
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    @FXML
-    public void actionGetItemInfo(ActionEvent event)
-    {
-        this.changeView("ItemDisplay", event);
-    }
+
 }

@@ -2,7 +2,7 @@ package Model.User;
 
 public class User implements UserInterface {
 
-    private int num;
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -26,8 +26,8 @@ public class User implements UserInterface {
 
 
     @Override
-    public int GetNum() {
-        return this.num;
+    public int GetId() {
+        return this.id;
     }
 
     @Override

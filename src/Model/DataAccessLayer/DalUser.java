@@ -20,8 +20,8 @@ public class DalUser {
         return DbInterface.GetUser(request);
     }
 
-    public static void Login(String email, String password) throws ConnectException {
-
+    public static User Login(String email, String password) throws ConnectException {
+        User user = null;
         String generatedPassword = null;
         try {
             // Create MessageDigest instance for MD5
@@ -45,7 +45,7 @@ public class DalUser {
             e.printStackTrace();
         }
 
-        User user = null;
+
         try {
             user = GetUser(email, generatedPassword);
         }
@@ -58,6 +58,7 @@ public class DalUser {
         {
             throw new ConnectException("The email or/and password are incorrect");
         }
+        return user;
     }
 
     public static void AddUser(User user) throws SQLException {
