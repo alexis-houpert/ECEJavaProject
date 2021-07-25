@@ -1,5 +1,10 @@
 package Model.Shop;
 
+import Model.DbConnect.DbInterface;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Car {
     private String name;
     private String brand;
@@ -23,6 +28,29 @@ public class Car {
         this.horsePower = horsePower;
         this.nbSeats = nbSeats;
         this.color = color;
+    }
+
+    public static int getNewSerialNumber()
+    {
+        int result = 0;
+        try {
+            ResultSet rs = DbInterface.GetData("select serialNumber from car ORDER by serialNumber DESC;");
+            while (rs.next())
+            {
+                result = rs.getInt(1);
+                if(result == 0)
+                {
+                    result++;
+                }
+                else{
+                    result++;
+                }
+                break;
+            }
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        return result;
     }
 
     public Integer getNbSeats() {

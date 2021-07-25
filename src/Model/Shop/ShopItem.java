@@ -1,5 +1,10 @@
 package Model.Shop;
 
+import Model.DbConnect.DbInterface;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class ShopItem {
 
     private Integer id;
@@ -14,6 +19,31 @@ public class ShopItem {
     }
 
     public ShopItem() {}
+
+    public static int getNewId()
+    {
+        int result = 0;
+        try {
+            ResultSet rs = DbInterface.GetData("select id from shopitem ORDER by id DESC;");
+            while (rs.next())
+            {
+                result = rs.getInt(1);
+                if(result == 0)
+                {
+                    result++;
+                }
+                else{
+                    result++;
+                }
+
+                break;
+            }
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        return result ;
+    }
+
 
     public double GetRentPrice(){
         return this.rentPrice;

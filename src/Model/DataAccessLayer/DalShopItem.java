@@ -84,6 +84,24 @@ public class DalShopItem {
         return shopItem;
     }
 
+    public static void addShopItem(ShopItem item)
+    {
+        String query = "INSERT INTO car (serialNumber, brand, name, horsePower, nbSeat, color) " +
+                "VALUES (" +
+                item.GetCar().getSerialNumber() + ", '" + item.GetCar().getBrand() + "', '" + item.GetCar().getName() +
+                "', "+ item.GetCar().getHorsePower()+ ", " + item.GetCar().getNbSeats() + ", '" + item.GetCar().getColor() +
+                "');";
+
+        String queryItem = "INSERT INTO shopItem (id, serialNumber, rentPrice) " +
+                "VALUES ("+ item.GetId() + ", " + item.GetCar().getSerialNumber() + ", " + item.GetRentPrice() + ");";
+        try {
+            DbInterface.UpdateData(query);
+            DbInterface.UpdateData(queryItem);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 
     public static void addBooking(Booking booking) throws SQLException {
 

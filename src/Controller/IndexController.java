@@ -127,4 +127,10 @@ public class IndexController implements Initializable {
         this.searchShopItem = new SearchShopItem(startDate, endDate, startAdress, endAddress);
         initData();
     }
+
+    @FXML
+    private void addShopItem(ActionEvent event)
+    {
+        changeView("AddShopItem", event);
+    }
 }
