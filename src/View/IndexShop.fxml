@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.IndexController">
          <children>
-      <Pane fx:id="header" prefHeight="56.0" prefWidth="800.0" />
+      <Pane fx:id="header" layoutY="8.0" prefHeight="40.0" prefWidth="462.0" />
             <SplitPane dividerPositions="0.29797979797979796" layoutY="56.0" prefHeight="444.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
               <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #00AED4;">
@@ -36,7 +36,10 @@
                      </children>
                   </Pane>
 
-                   <Button fx:id="addButton" onAction="#addShopItem" layoutX="39.0" layoutY="402.0" mnemonicParsing="false" text="Add Shop item" />
+                   <Button fx:id="addButton" layoutX="68.0" layoutY="406.0" mnemonicParsing="false" onAction="#addShopItem" text="Add Shop item">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
                </children></AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
