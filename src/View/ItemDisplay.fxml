@@ -5,6 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ItemController">
    <children>
@@ -14,19 +15,24 @@
             <Pane layoutX="10.0" layoutY="13.0" prefHeight="329.0" prefWidth="581.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="44.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="brand" layoutX="112.0" layoutY="204.0" text="brand" />
-                  <Label fx:id="name" layoutX="44.0" layoutY="204.0" text="name" />
+                  <Label fx:id="brand" layoutX="107.0" layoutY="222.0" text="brand" />
+                  <Label fx:id="name" layoutX="43.0" layoutY="221.0" text="name" />
                   <Button layoutX="450.0" layoutY="256.0" mnemonicParsing="false" onAction="#bookCar" prefHeight="27.0" prefWidth="61.0" text="Rent" />
-                  <Label layoutX="272.0" layoutY="146.0" text="Detail 1" />
-                  <Label layoutX="367.0" layoutY="146.0" text="Detail 2" />
                   <Label fx:id="startDateLabel" layoutX="271.0" layoutY="165.0" text="Detail 3" />
                   <Label fx:id="endDateLabel" layoutX="367.0" layoutY="165.0" text="Detail 4" />
                   <Label fx:id="bookInfoMessage" layoutX="231.0" layoutY="14.0" prefHeight="18.0" prefWidth="336.0" textFill="RED" />
-                  <Label fx:id="horsePower" layoutX="271.0" layoutY="34.0" text="horsePower" />
-                  <Label fx:id="numberSeat" layoutX="270.0" layoutY="58.0" text="numberOfSeat" />
-                  <Label layoutX="270.0" layoutY="83.0" text="color" />
+                  <Label fx:id="horsePower" layoutX="271.0" layoutY="34.0" prefHeight="17.0" prefWidth="31.0" text="horsePower" />
+                  <Label fx:id="numberSeat" layoutX="270.0" layoutY="58.0" prefHeight="17.0" prefWidth="26.0" text="numberOfSeat" />
+                  <Label layoutX="308.0" layoutY="84.0" text="color" />
                   <Label layoutX="424.0" layoutY="58.0" text="price-bdd" />
                   <Label layoutX="436.0" layoutY="75.0" text="Price" />
+                  <Text layoutX="29.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car name :" />
+                  <Text layoutX="98.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car brand :" />
+                  <Label fx:id="horsePower1" layoutX="302.0" layoutY="34.0" text="hp" />
+                  <Label fx:id="horsePower11" layoutX="302.0" layoutY="58.0" text="seats" />
+                  <Text layoutX="264.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data start" />
+                  <Text layoutX="361.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data end" />
+                  <Label fx:id="horsePower111" layoutX="269.0" layoutY="84.0" text="Color : " />
                </children>
             </Pane>
          </children>
