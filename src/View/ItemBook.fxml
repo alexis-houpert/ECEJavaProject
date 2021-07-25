@@ -25,24 +25,6 @@
          </font>
       </Label>
 
-      <Label layoutX="152.0" layoutY="52.0" prefHeight="18.0" prefWidth="59.0" text="Date end">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="265.0" layoutY="18.0" text="Address start">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="267.0" layoutY="53.0" text="Address end">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label fx:id="carName" layoutX="49.0" layoutY="57.0" text="Audi A4" />
-      <Label fx:id="dateStartLabel" layoutX="150.0" layoutY="34.0" text="21/07/2021" />
-      <Label fx:id="dateEndLabel" layoutX="151.0" layoutY="69.0" text="21/07/2021" />
-      <Label fx:id="startAddressLabel" layoutX="255.0" layoutY="34.0" text="21 malware street" />
-      <Label fx:id="endAddressLabel" layoutX="255.0" layoutY="69.0" text="21 malware street" />
-
       <Label layoutX="163.0" layoutY="53.0" prefHeight="18.0" prefWidth="59.0" text="Date end">
          <font>
             <Font name="System Bold" size="12.0" />
