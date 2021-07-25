@@ -1,5 +1,9 @@
 package Application;
 
+/**
+ * @author Alexis
+ * Constant use in the project group in this class
+ */
 public class Constantes {
 
     // SHOP ITEM CONSTANT
@@ -25,14 +29,14 @@ public class Constantes {
     public static final String VUE_ITEM_PRICE = "#price";
     public static final String VUE_ITEM_COMPANY = "#company";
 
-    //public static final String URL = "jdbc:mysql://mysql-houpert.alwaysdata.net:3306/houpert_rent_car";
-    public static final String URL = "jdbc:mysql://mysql-houpert.alwaysdata.net:3306/rent_car";
+    public static final String URL = "jdbc:mysql://mysql-houpert.alwaysdata.net/houpert_rent_car";
+    //public static final String URL = "jdbc:mysql://localhost:3306/rent_car";
 
-    //public static final String USER = "houpert";
-    public static final String USER = "root";
+    public static final String USER = "houpert";
+    //public static final String USER = "root";
 
-    //public static final String PASSWORD = "Cerise342000";
-    public static final String PASSWORD = "";
+    public static final String PASSWORD = "Cerise342000";
+    //public static final String PASSWORD = "";
 
 
 

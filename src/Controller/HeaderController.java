@@ -16,6 +16,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Alexis HOUPERT
+ * @author Louis DUTTIER
+ * This controller is used to handle all actions from Header view
+ */
 public class HeaderController implements Initializable {
 
     @Override

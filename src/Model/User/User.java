@@ -1,5 +1,9 @@
 package Model.User;
 
+/**
+ * @author Alexis HOUPERT
+ * User is use to represent User data in client side. Use to transmit and store data
+ */
 public class User implements UserInterface {
 
     private int id;

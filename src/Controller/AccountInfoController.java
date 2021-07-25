@@ -3,6 +3,7 @@ package Controller;
 import Application.Constantes;
 import Model.DataAccessLayer.DalShopItem;
 import Model.DataAccessLayer.DalUser;
+import Model.DataPieChart;
 import Model.Shop.Booking;
 import Model.Shop.ShopItem;
 import Model.User.UserSession;
@@ -25,6 +26,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * @author Alexis HOUPERT
+ * @author Louis DUTTIER
+ * This controller is used to handle action and data displaying in the account section where we can find the history of booking and more
+ */
 public class AccountInfoController implements Initializable {
 
     @FXML
@@ -108,51 +114,13 @@ public class AccountInfoController implements Initializable {
 
     public void caclculPieChart()
     {
-        Integer cptAudi = 0;
-         Integer cptMercedes = 0;
-         Integer cptPorsche = 0;
-         Integer cptVolkswagen = 0;
-         Integer cptOther = 0;
-
-        List<Booking> allBooking = new ArrayList<>();
-        try {
-            allBooking = DalShopItem.getAllBooking();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        for (Booking book : allBooking)
-        {
-            if(book.getCar().getBrand().equals(Constantes.AUDI))
-            {
-                cptAudi++;
-            }
-            else if (book.getCar().getBrand().equals(Constantes.MERCEDES))
-            {
-                cptMercedes++;
-            }
-            else if (book.getCar().getBrand().equals(Constantes.PORSCHE))
-            {
-                cptPorsche++;
-            }
-            else if (book.getCar().getBrand().equals(Constantes.VOLKSWAGEN))
-            {
-                cptVolkswagen++;
-            }
-            else if (book.getCar().getBrand().equals(""))
-            {
-                cptOther++;
-            }
-        }
+        PieChart.Data slice1 = new PieChart.Data(Constantes.PORSCHE, DataPieChart.getCptPorsche());
+        PieChart.Data slice2 = new PieChart.Data(Constantes.MERCEDES, DataPieChart.getCptMercedes());
+        PieChart.Data slice3 = new PieChart.Data(Constantes.AUDI, DataPieChart.getCptAudi());
+        PieChart.Data slice4 = new PieChart.Data(Constantes.VOLKSWAGEN, DataPieChart.getCptVolkswagen());
+        PieChart.Data slice5 = new PieChart.Data("Other", DataPieChart.getCptOther());
 
 
-        PieChart.Data slice1 = new PieChart.Data(Constantes.PORSCHE, cptPorsche);
-        PieChart.Data slice2 = new PieChart.Data(Constantes.MERCEDES, cptMercedes);
-        PieChart.Data slice3 = new PieChart.Data(Constantes.AUDI, cptAudi);
-        PieChart.Data slice4 = new PieChart.Data(Constantes.VOLKSWAGEN, cptVolkswagen);
-        PieChart.Data slice5 = new PieChart.Data("Other", cptOther);
 
         pieChart.getData().add(slice1);
         pieChart.getData().add(slice2);

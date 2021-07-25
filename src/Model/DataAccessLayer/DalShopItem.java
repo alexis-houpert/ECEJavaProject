@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author Alexis HOUPERT
+ * DalShopItem is the layer close to database interface responsible for retrieving data related to ShopItem and Booking
+ */
 public class DalShopItem {
     public static List<ShopItem> GetAllShopItem()
     {
@@ -28,6 +32,14 @@ public class DalShopItem {
         return results;
     }
 
+    /**
+     * This methode search for available item in he shope.
+     * In order to find car that are available on the period, this query search for all booking linked to a car with date that
+     * are touching its other.
+     * @param startDate date for starting rent
+     * @param endDate date of ending
+     * @return list ShopItem that are available
+     */
     public static List<ShopItem> GetShopItems(LocalDate startDate, LocalDate endDate)
     {
         List<ShopItem> results = new ArrayList<ShopItem>();
@@ -85,6 +97,10 @@ public class DalShopItem {
         return shopItem;
     }
 
+    /**
+     * Insert Shop item in the database
+     * @param item
+     */
     public static void addShopItem(ShopItem item)
     {
         String query = "INSERT INTO car (serialNumber, brand, name, horsePower, nbSeat, color) " +
@@ -103,7 +119,11 @@ public class DalShopItem {
         }
     }
 
-
+    /**
+     * Add a book to the database
+     * @param booking
+     * @throws SQLException
+     */
     public static void addBooking(Booking booking) throws SQLException {
 
             String query = "INSERT INTO booking (id, userId, shopItemId, dateStartBook, " +
@@ -125,6 +145,12 @@ public class DalShopItem {
         return extractBookings(userId, query);
     }
 
+    /**
+     * Search all book from user. THis method is used to build the pie chart
+     * @return
+     * @throws SQLException
+     * @throws ParseException
+     */
     public static List<Booking> getAllBooking() throws SQLException, ParseException {
         List<Booking> results = new ArrayList<>();
         String query = "Select * from booking;";

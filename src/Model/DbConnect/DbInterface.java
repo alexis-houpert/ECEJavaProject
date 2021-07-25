@@ -9,11 +9,20 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Alexis
+ * Interface between Data Access Layer and Database. Retrieve and update data
+ */
 public class DbInterface {
 
     static Connection dbConnect;
 
 
+    /**
+     * Select all shop item
+     * @return
+     * @throws SQLException
+     */
     public static List<ShopItem> GetShopItems() throws SQLException
     {
         List<ShopItem> results = new ArrayList<>();
@@ -41,6 +50,9 @@ public class DbInterface {
         return results;
     }
 
+    /**
+     * Close the connection to the server
+     */
     public static void CloseConnection()
     {
         try{
@@ -51,6 +63,12 @@ public class DbInterface {
         }
     }
 
+    /**
+     * Generic methode to retrieve data from the database
+     * @param query
+     * @return
+     * @throws SQLException
+     */
     public static ResultSet GetData(String query) throws SQLException
     {
         try {
@@ -70,6 +88,11 @@ public class DbInterface {
         return null;
     }
 
+    /**
+     * Generic method to update data on database.
+     * @param query
+     * @throws SQLException
+     */
     public static void UpdateData(String query) throws SQLException
     {
         dbConnect = DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.PASSWORD);
@@ -78,7 +101,10 @@ public class DbInterface {
     }
 
 
-
+    /**
+     * Test method for dataBase
+     * @param arg
+     */
     public static void main(String[] arg) {
 
         try {

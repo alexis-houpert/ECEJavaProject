@@ -9,6 +9,10 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Alexis HOUPERT
+ * DalUser is the layer close to database interface responsible for retrieving data related to User
+ */
 public class DalUser {
 
     public static User GetUser(String email, String hashPasswd) throws SQLException {

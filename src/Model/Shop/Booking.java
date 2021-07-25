@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * @author Alexis HOUPERT
+ * This class permit to store data of booking in client side. It is use in controller to store all data relative to booking
+ */
 public class Booking {
     private int id;
     private User user;

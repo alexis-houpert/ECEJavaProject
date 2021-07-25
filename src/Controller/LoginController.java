@@ -21,6 +21,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Alexis HOUPERT, Louis DUTTIER
+ * This controller is used to handle action from the login page
+ */
 public class LoginController implements Initializable {
 
 
@@ -35,7 +39,7 @@ public class LoginController implements Initializable {
         }
 
     /**
-     * Change la vue actuelle
+     * Change the actual view
      * @param viewName
      * @param event
      */

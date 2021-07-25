@@ -5,6 +5,10 @@ import Model.DbConnect.DbInterface;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Alexis HOUPERT
+ * THe class store data for 1 item in the shop
+ */
 public class ShopItem {
 
     private Integer id;

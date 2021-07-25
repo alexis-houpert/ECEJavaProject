@@ -7,6 +7,9 @@ import java.util.Date;
 
 import java.util.List;
 
+/**
+ * SearchShopItem is a class that store all the data relative to the view IndexShop.
+ */
 public class SearchShopItem {
     private List<ShopItem> listShopItem;
 

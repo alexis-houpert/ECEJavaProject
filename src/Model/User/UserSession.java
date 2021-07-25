@@ -1,5 +1,8 @@
 package Model.User;
 
+/**
+ * Static class that is use to store information about the user connected
+ */
 public class UserSession
 {
     public static User user;

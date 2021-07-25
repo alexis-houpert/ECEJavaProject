@@ -3,8 +3,7 @@ package Controller;
 import Application.Constantes;
 import Model.Shop.SearchShopItem;
 import Model.Shop.ShopItem;
-import Model.User.Role;
-import Model.User.User;
+import Model.ThreadUpdateDataPieChart;
 import Model.User.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,13 +23,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.ResourceBundle;
 
+/**
+ * @author Alexis HOUPERT, Louis DUTTIER
+ * This controller is used to handle all actions from shop view
+ */
 public class IndexController implements Initializable {
 
     @FXML private Pane header;
@@ -51,6 +50,8 @@ public class IndexController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1)
     {
         initHeader();
+        Thread routine = new ThreadUpdateDataPieChart();
+        routine.start();
         if (UserSession.getUser().getRole().equals("NCU"))
         {
             addButton.setOpacity(0);

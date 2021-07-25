@@ -33,6 +33,12 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
+
+/**
+ * @author Alexis HOUPERT
+ * @author Louis DUTTIER
+ * This controller is used to handle all actions from on item of the shop. It need a shopItem Id to work
+ */
 public class ItemController implements Initializable{
 
     @FXML private Pane header;

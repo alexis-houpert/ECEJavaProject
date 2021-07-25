@@ -18,6 +18,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Alexis HOUPERT
+ * @author Louis DUTTIER
+ * This controller is used to handle the feature of adding an item in the shop
+ */
 public class AddShopItemController implements Initializable
 {
 

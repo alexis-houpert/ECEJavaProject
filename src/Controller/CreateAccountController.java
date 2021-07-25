@@ -24,6 +24,11 @@ import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * @author Alexis HOUPERT
+ * @author Louis DUTTIER
+ * This controller is used to handle the sign up process
+ */
 public class CreateAccountController implements Initializable {
 
     @FXML private Pane header;

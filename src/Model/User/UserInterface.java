@@ -1,5 +1,8 @@
 package Model.User;
 
+/**
+ * Define the global behavior of User
+ */
 public interface UserInterface
 {
     public int GetId();

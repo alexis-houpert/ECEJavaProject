@@ -5,6 +5,10 @@ import Model.DbConnect.DbInterface;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Alexis HOUPERT
+ * Car is used to store data about car in client side
+ */
 public class Car {
     private String name;
     private String brand;
