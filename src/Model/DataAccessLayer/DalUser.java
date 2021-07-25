@@ -2,12 +2,7 @@ package Model.DataAccessLayer;
 
 import Model.DbConnect.DbInterface;
 import Model.Exception.ConnectException;
-import Model.Shop.Car;
-import Model.Shop.ShopItem;
-import Model.User.Customer;
-import Model.User.Employee;
 import Model.User.User;
-import Model.User.UserInterface;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,7 +26,7 @@ public class DalUser {
             ResultSet rs = DbInterface.GetData(query);
             while (rs.next())
             {
-                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(7), rs.getString(8), rs.getString(9));
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(7), rs.getString(8), rs.getString(9));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -80,31 +75,22 @@ public class DalUser {
     }
 
     public static void AddUser(User user) throws SQLException {
-        String role = "";
-        if (user.GetFirstName() == null || user.GetFirstName().isEmpty())
+
+        if (user.GetFirstName() != null || !user.GetFirstName().isEmpty())
         {
             String request = "INSERT INTO user (email, password, roleCode, numCust, numEmploye, firstName, lastName, adress) " +
-                    "VALUES ('" + user.GetEmail() + "', '" + user.GetHashPassword() + "','" + role + "'," +
-                    "'" + (user.getClass().getSimpleName() == "Customer" ? ((Customer) user).GetNum():((Employee) user).GetNum() ) + "'," +
-                    "'" + (user.getClass().getSimpleName() == "Customer" ? "NCU" : "EMP") + "'," +
+                    "VALUES ('" + user.GetEmail() + "', '" + user.GetHashPassword() + "','" + user.getRole()+ "'," +
+                    "NULL, NULL," +
                     "'" + user.GetFirstName() + "'," +
                     "'" + user.GetLastName() + "'," +
                     "'" + user.GetAdress() + "' );";
-            DbInterface.InsertUser(request);
+            DbInterface.UpdateData(request);
         }
+        else
+        {
+         throw new IllegalArgumentException("Invalid data");
+        }
+
     }
 
-    public static void AddCustomer(Customer cust) throws SQLException {
-        String role = "NCU";
-        if (cust.GetFirstName() != null || !cust.GetFirstName().isEmpty())
-        {
-            String request = "INSERT INTO user (email, password, roleCode, numCust, firstName, lastName, adress) " +
-                    "VALUES ('" + cust.GetEmail() + "', '" + cust.GetHashPassword() + "','" + role + "'," +
-                    "'" + cust.GetNum() + "'," +
-                    "'" + cust.GetFirstName() + "'," +
-                    "'" + cust.GetLastName() + "'," +
-                    "'" + cust.GetAdress() + "' );";
-            DbInterface.InsertUser(request);
-        }
-    }
 }

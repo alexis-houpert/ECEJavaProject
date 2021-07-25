@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -28,6 +29,7 @@ public class AddShopItemController implements Initializable
     @FXML public TextField price;
 
     @FXML public Pane header;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,7 +61,7 @@ public class AddShopItemController implements Initializable
 
         DalShopItem.addShopItem(new ShopItem(ShopItem.getNewId(),car,itemPrice));
 
-        
+
     }
    
     

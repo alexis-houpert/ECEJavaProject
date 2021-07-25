@@ -123,7 +123,7 @@ public class DbInterface {
             ResultSet rs = stmt.executeQuery(request);
             while (rs.next())
             {
-                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(7), rs.getString(8), rs.getString(9));
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(7), rs.getString(8), rs.getString(9));
                 break;
             }
             return user;

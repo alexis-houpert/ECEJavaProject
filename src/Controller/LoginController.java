@@ -65,6 +65,7 @@ public class LoginController implements Initializable {
         {
             User user = DalUser.Login(email, passwd);
             UserSession.setUser(user);
+
             this.changeView("IndexShop", event);
         }
         catch (ConnectException e)

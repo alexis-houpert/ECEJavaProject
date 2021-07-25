@@ -9,6 +9,17 @@ public class User implements UserInterface {
     private String hashPasswd;
     private String adress;
 
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    private String role;
+
     public User()
     {
 
@@ -20,11 +31,12 @@ public class User implements UserInterface {
         this.hashPasswd = hashPasswd;
     }
 
-    public User(int id, String email, String hashPasswd, String firstName, String lastName, String adress)
+    public User(int id, String email, String hashPasswd, String role, String firstName, String lastName, String adress)
     {
         this.id = id;
         this.email = email;
         this.hashPasswd = hashPasswd;
+        this.role = role;
         this.firstName = firstName;
         this.lastName = lastName;
         this.adress = adress;

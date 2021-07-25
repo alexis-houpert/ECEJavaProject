@@ -3,6 +3,9 @@ package Controller;
 import Application.Constantes;
 import Model.Shop.SearchShopItem;
 import Model.Shop.ShopItem;
+import Model.User.Role;
+import Model.User.User;
+import Model.User.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +32,7 @@ public class IndexController implements Initializable {
     @FXML private Pane header;
 
     @FXML private VBox conteneur;
+    @FXML public Button addButton;
 
     @FXML private TextField startDateText;
     @FXML private TextField endDateText;
@@ -43,6 +47,10 @@ public class IndexController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1)
     {
         initHeader();
+        if (UserSession.getUser().getRole().equals("NCU"))
+        {
+            addButton.setOpacity(0);
+        }
         searchShopItem = new SearchShopItem();
         initData();
 
