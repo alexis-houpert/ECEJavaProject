@@ -29,6 +29,7 @@
                   <Label layoutX="63.0" layoutY="94.0" text="First Name" />
                   <Label layoutX="67.0" layoutY="53.0" text="Password" />
                   <Label layoutX="77.0" layoutY="18.0" text="Email" />
+                  <Button onAction="#returnHome" layoutY="224.0" mnemonicParsing="false" text="Return" />
                </children>
             </Pane>
             <Button layoutX="269.0" layoutY="282.0" mnemonicParsing="false" onAction="#createAccount" text="SIGN UP" />

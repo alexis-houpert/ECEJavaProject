@@ -45,18 +45,10 @@ public class CreateAccountController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        initHeader();
+
     }
 
-    public void initHeader()
-    {
-        try {
-            AnchorPane headerAnchor = FXMLLoader.load(getClass().getResource("/View/Header.fxml"));
-            header.getChildren().add(headerAnchor);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @FXML
     public void createAccount(ActionEvent event)
@@ -166,5 +158,10 @@ public class CreateAccountController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML private void returnHome(ActionEvent event)
+    {
+        this.changeView("Login",event);
     }
 }

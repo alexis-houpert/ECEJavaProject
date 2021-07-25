@@ -18,8 +18,6 @@ public class Constantes {
     public static final String VUE_BOOK_ADDRESS_END = "#endAddressLabel";
 
 
-
-
     public static final String VUE_ITEM_PRICE = "#price";
     public static final String VUE_ITEM_COMPANY = "#company";
 
